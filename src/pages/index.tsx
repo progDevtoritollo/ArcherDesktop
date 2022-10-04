@@ -2,7 +2,7 @@
 import { lazy } from "react";
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 import TestPage from "./test"
-import TestPage2 from "./test2"
+import TestPage2 from "./test copy"
 
 
 // const TestPage = lazy(() => import("./test"));
