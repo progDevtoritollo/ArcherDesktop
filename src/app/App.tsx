@@ -6,14 +6,12 @@ import "./index.scss"
 const App = () => {
 
 	return (
-		<>
-			{/* <Header/> */}
-			<div><Link to="/test2">Test2</Link></div>
+		<div className="wrapper">
 			<h1>Header</h1>
 			<Routing />
-			{/* Footer */}
-		</>);
+			<div><Link to="/dashboard">Dashboard</Link></div>
+			<h1>Footer</h1>
+		</div>);
 }
 
 export default withProviders(App);
-// export default App;
