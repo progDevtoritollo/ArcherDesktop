@@ -1,0 +1,23 @@
+button {
+  width: 102px;
+  height: 32px;
+
+  background: #819cf1;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+}
+
+button:hover {
+  background: #728bda;
+}
+
+button:active {
+  background: #5a6dab;
+  border: 2px solid #9eb2f3;
+  border-radius: 6px;
+}
+
+button:disabled {
+  background-color: #b2c2f1;
+}

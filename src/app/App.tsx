@@ -9,7 +9,7 @@ const App = () => {
 		<div className="wrapper">
 			<h1>Header</h1>
 			<Routing />
-			<div><Link to="/dashboard">Dashboard</Link></div>
+			{/* <div><Link to="/dashboard">Dashboard</Link></div> */}
 			<h1>Footer</h1>
 		</div>);
 }
