@@ -13,11 +13,11 @@ import React, { useState, useEffect } from "react";
 // import requestBuilder from "./../../utils/requestBuilder";
 // import loginService from "./../../services/loginService";
 import Block from "shared/ui/Block";
-import authBuilder from "shared/auth";
+import authBuilder from "entities/auth/api/authService";
 
 // import { SetIsAuth } from "./../../redux/user/slice";
 
-const LoginForm = () => {
+const LoginForm: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,19 +25,18 @@ const LoginForm = () => {
   const [form] = Form.useForm();
   const [, forceUpdate] = useState({});
 
-  const [getResult, setPostResult] = useState(null);
+  const [getResult, setPostResult] = useState<string | null>(null);
 
-  const formatResponse = (res) => {
+  const formatResponse = (res: any) => {
     return JSON.stringify(res, null, 2);
   };
 
-  const { isLoading: isLoadingLogin, mutate: postLogin } = useMutation(
+  const { isLoading: isLoadingLogin, mutate: postLogin } = useMutation<any, Error>(
     "query-login",
     async () => {
       return await authBuilder.login(email, password);
     },
     {
-      enabled: false,
       onSuccess: (res) => {
         const result = {
           status: res.status + "-" + res.statusText,
@@ -48,7 +47,7 @@ const LoginForm = () => {
         setPostResult(formatResponse(result));
         navigate("/");
       },
-      onError: (err) => {
+      onError: (err: any) => {
         setPostResult(formatResponse(err.response?.data || err));
       },
     }
@@ -58,9 +57,9 @@ const LoginForm = () => {
     if (isLoadingLogin) setPostResult("loading...");
   }, [isLoadingLogin]);
 
-  function login(data) {
+  function login() {
     try {
-      postLogin(data);
+      postLogin();
     } catch (err) {
       setPostResult(formatResponse(err));
     }
@@ -97,7 +96,7 @@ const LoginForm = () => {
           <Form.Item
             hasFeedback
             name="email"
-            icon="mail"
+            // icon="mail"
             rules={[
               {
                 type: "email",

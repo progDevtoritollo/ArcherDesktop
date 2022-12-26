@@ -3,7 +3,7 @@ import apiClient from "app/http-common";
 class auth {
   API_URL = "http://localhost:8080/api/auth/";
 
-  login = (email, password) => {
+  login = (email: string, password: string) => {
     return apiClient
       .post(this.API_URL + "login", {
         email: email,
@@ -15,14 +15,14 @@ class auth {
       });
   };
 
-  register = (name, sureName, email, password) => {
+  register = (name:string, sureName :string, email :string, password :string, confirm:string) => {
     return apiClient
       .post(this.API_URL + "signup", {
         name: name,
         surname: sureName,
         email: email,
         password: password,
-        confirm: password,
+        confirm: confirm,
       })
       .then((response) => {
         this.login(email, password);

@@ -14,20 +14,19 @@ import {
 } from "@ant-design/icons";
 
 // import { GOOGLE_API } from "./../../commons";
-import authBuilder from "shared/auth";
+import authBuilder from "entities/auth/api/authService";
 import Block from "shared/ui/Block";
 // import registerService from "./../../services/registerService";
 // import loginService from "./../../services/loginService";
 // import requestBuilder from "./../../utils/requestBuilder";
 // import { SetIsAuth } from "./../../redux/user/slice";
 
-const RegisterForm = () => {
+const RegisterForm: React.FC = () => {
   const navigate = useNavigate();
   // const dispatch = useDispatch();
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
@@ -37,13 +36,13 @@ const RegisterForm = () => {
   const [form] = Form.useForm();
   const [, forceUpdate] = useState({});
 
-  const [getResult, setPostResult] = useState(null);
+  const [getResult, setPostResult] = useState<string | null>(null);
 
-  const formatResponse = (res) => {
+  const formatResponse = (res: any) => {
     return JSON.stringify(res, null, 2);
   };
 
-  const { isLoading: isLoadingLogin, mutate: postRegister } = useMutation(
+  const { isLoading: isLoadingLogin, mutate: postRegister } = useMutation<any, Error>(
     "query-registration",
     async () => {
       return await authBuilder.register(
@@ -55,7 +54,6 @@ const RegisterForm = () => {
       );
     },
     {
-      enabled: false,
       onSuccess: (res) => {
         const result = {
           status: res.status + "-" + res.statusText,
@@ -66,7 +64,7 @@ const RegisterForm = () => {
         setPostResult(formatResponse(result));
         navigate("/");
       },
-      onError: (err) => {
+      onError: (err: any) => {
         setPostResult(formatResponse(err.response?.data || err));
       },
     }
@@ -76,9 +74,9 @@ const RegisterForm = () => {
     if (isLoadingLogin) setPostResult("loading...");
   }, [isLoadingLogin]);
 
-  function register(data) {
+  function register() {
     try {
-      postRegister(data);
+      postRegister();
     } catch (err) {
       setPostResult(formatResponse(err));
     }
@@ -133,7 +131,7 @@ const RegisterForm = () => {
             <Form.Item
               hasFeedback
               name="email"
-              icon="mail"
+              // icon="mail"
               rules={[
                 {
                   type: "email",
