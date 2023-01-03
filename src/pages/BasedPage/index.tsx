@@ -4,11 +4,14 @@ import TestPage from "pages/test"
 import Dashboard from "pages/Dashboard"
 import Menu from "widgets/Menu"
 
+import "./index.scss"
+
 const BasedPage = () => {
 	return (
-		<div>
-			<h1>BasedPage</h1>
-			<Menu />
+		<div className="root">
+
+			<div className="menu__container"><Menu /></div>
+
 
 			<Routes>
 				<Route path="/dashboard" element={<Dashboard />} />

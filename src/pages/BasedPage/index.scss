@@ -1,0 +1,7 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  .menu__container {
+    max-height: 100vh;
+  }
+}
