@@ -1,14 +1,23 @@
 
-import { Route, Routes } from "react-router-dom";
-import TestPage from "./test"
-import Dashboard from "./Dashboard"
+import { Route, Routes, Navigate } from "react-router-dom";
+
+import Auth from "pages/Auth/Auth";
+import BasedPage from "pages/BasedPage";
 
 export const Routing = () => {
-	return (
-		<Routes>
-			<Route path="/dashboard" element={<Dashboard />} />
+	const isAuth = true;
 
-			<Route path="/" element={<TestPage />} />
-		</Routes>
+	return (
+		<div className="wrapper">
+			<Routes>
+				<Route path="/auth/*" element={isAuth ? <Navigate to="/" /> :
+					<Auth />} />
+
+				<Route path="/NotFound" element={<h1 >NotFound</h1>} />
+
+				<Route path="/*" element={isAuth ? <BasedPage /> : <Navigate to="/auth/signin" />} />
+
+			</Routes>
+		</div>
 	);
 };

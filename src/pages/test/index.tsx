@@ -1,8 +1,11 @@
-import { Button } from 'evergreen-ui'
+
+import { Link } from "react-router-dom"
 
 const TestPage = () => {
-	return <div><h1>Test Page</h1>
-		<Button>Click me!</Button>
+	return <div>
+		<h1>Test Page</h1>
+		<div>
+			<Link to="/dashboard">Dashboard</Link></div>
 	</div>;
 };
 
