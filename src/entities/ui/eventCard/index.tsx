@@ -20,7 +20,7 @@ interface CardEventProps {
 }
 
 
-function CardEvent({ name, event, opponentScore, time, userScore, opponentName, userPhoto, competitionPlace }: CardEventProps) {
+function CardEvent({ name, event, opponentScore = 0, time, userScore, opponentName, userPhoto, competitionPlace }: CardEventProps) {
 
   switch (event) {
     case "check":
@@ -52,7 +52,11 @@ function CardEvent({ name, event, opponentScore, time, userScore, opponentName, 
             </div>
           </div>
           <div className="right">
-            <div className="card__duel-score">{userScore}:{opponentScore}</div>
+            {
+              userScore <= opponentScore ?
+                <div className="card__duel-score card__duel-score_lose">{userScore}:{opponentScore}</div> :
+                <div className="card__duel-score card__duel-score_win">{userScore}:{opponentScore}</div>
+            }
             <div className="card__time">{time}</div>
           </div>
         </div>
@@ -60,7 +64,7 @@ function CardEvent({ name, event, opponentScore, time, userScore, opponentName, 
     case "competition":
       return (
         <div className="card">
-          <div className="left">'
+          <div className="left">
             <div className="card__avatar">
               <Avatar src={userPhoto} size="large" icon={<UserOutlined />} />
             </div>

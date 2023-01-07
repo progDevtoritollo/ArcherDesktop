@@ -1,6 +1,6 @@
 .card {
-      max-width: 400px;
-      min-width: 320px;
+      max-width: 530px;
+      min-width: 480px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -37,11 +37,17 @@
       }
 
       //duel
+
       &__duel-score {
-            padding: 2px;
-            box-sizing: border-box;
-            background: #f49c9c;
             border-radius: 20px;
+            box-sizing: border-box;
+            padding: 2px;
+      }
+      &__duel-score_lose {
+            background: #e08181;
+      }
+      &__duel-score_win {
+            background: rgba(113, 241, 82, 0.55);
       }
 
       // competition

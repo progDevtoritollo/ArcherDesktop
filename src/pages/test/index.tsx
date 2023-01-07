@@ -28,7 +28,36 @@ const arr = [{
 	time: "1 hour",
 	userPhoto: "URLdfbsfbof",
 	competitionPlace: 2
-}]
+}, {
+	id: 3454,
+	username: "Игорь Марусич",
+	score: 5,
+	opponentScore: 4,
+	event: "duel",
+	time: "2 hours",
+	opponentName: "Loarense Aravisky",
+	userPhoto: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+},
+{
+	id: 4949,
+	username: "Игорь Марусич",
+	score: 2,
+	opponentScore: 4,
+	event: "duel",
+	time: "1 week",
+	opponentName: "Loarense Aravisky",
+	userPhoto: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+},
+{
+
+	id: 56457,
+	username: "Игорь Марусич",
+	score: 289,
+	event: "competition",
+	time: "1 week",
+	userPhoto: "URLdfbsfbof",
+	competitionPlace: 1
+},]
 
 
 const TestPage = () => {
