@@ -1,27 +1,61 @@
 {
-	"cSpell.autoFormatConfigFile": false,
+	//new
+	"editor.wordWrap": "on",
+	"editor.detectIndentation": true,
+	"editor.smoothScrolling": true,
+	"editor.suggestSelection": "first",
+	"editor.cursorBlinking": "expand",
+	"editor.fontLigatures": true,
+	"prettier.useTabs": true,
 	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"prettier.singleQuote": true,
+	"prettier.jsxSingleQuote": true,
+	"prettier.arrowParens": "avoid",
+	"prettier.printWidth": 160,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"javascript.suggestionActions.enabled": false,
+	"typescript.suggestionActions.enabled": false,
+	"javascript.updateImportsOnFileMove.enabled": "always",
 	"typescript.updateImportsOnFileMove.enabled": "always",
-	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true,
+	"explorer.confirmDelete": false,
+	"explorer.compactFolders": false,
+	"explorer.confirmDragAndDrop": false,
+	"cSpell.language": "en,ru",
+	"cSpell.userWords": [],
+	"cSpell.enabled": true,
+	"cSpell.enableFiletypes": [
+		"tsx",
+		"jsx",
+		"sass",
+		"json"
+	],
+	/// old 
+	"html.format.wrapAttributes": "force-expand-multiline",
+	"cSpell.autoFormatConfigFile": false,
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"[typecript]": {
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	// "editor.defaultFormatter": "esbenp.prettier-vscode",
+	// "[javascript]": {
+	// 	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	// },
+	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true,
 	},
 	"[css]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true,
 	},
 	"[scss]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnSave": true,
 	},
-	"git.autofetch": true,
 	"[html]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	"git.autofetch": true,
 	"files.exclude": {
 		"**/.git": true,
 		"**/.svn": true,
@@ -126,10 +160,10 @@
 // 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 // 		"editor.formatOnSave": true,
 // 	},
-// 	"git.autofetch": true,
 // 	"[html]": {
 // 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 // 	},
+// 	"git.autofetch": true,
 // 	"sqltools.useNodeRuntime": true,
 // 	"sync.forceUpload": true,
 // 	"workbench.activityBar.visible": true,
