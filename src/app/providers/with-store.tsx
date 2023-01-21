@@ -1,7 +1,5 @@
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 // I don't like that we pass store here but whatever
-import { store } from "app/store";
+import { store } from 'app/redux/store';
 
-
-export const withStore = (component: () => React.ReactNode) => () =>
-  <Provider store={store}>{component()}</Provider>;
+export const withStore = (component: () => React.ReactNode) => () => <Provider store={store}>{component()}</Provider>;

@@ -22,7 +22,11 @@
 	"explorer.compactFolders": false,
 	"explorer.confirmDragAndDrop": false,
 	"cSpell.language": "en,ru",
-	"cSpell.userWords": [],
+	"cSpell.userWords": [
+		"reduxjs",
+		"fortmat",
+		"antd"
+	],
 	"cSpell.enabled": true,
 	"cSpell.enableFiletypes": [
 		"tsx",
