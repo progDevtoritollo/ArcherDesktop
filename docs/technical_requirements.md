@@ -232,12 +232,12 @@
 - UserSettings - /user/settings
   Настройки пользователя:
 
-  - Дата рождения
-  - Имя Фамилимя
-  - Никнейм
-  - Аватарка
-  - Тип мишени
-  - Звание стрелка
+     - Дата рождения
+     - Имя Фамилимя
+     - Никнейм
+     - Аватарка
+     - Тип мишени
+     - Звание стрелка
 
 ## 4.1 Уведомления пользователя
 
@@ -264,17 +264,18 @@
 
 - Бэкенд:
 
-  - Язык
-  - Фреймворк
-  - БД
+     - Язык
+     - Фреймворк
+     - БД
 
 - Фронтенд:
 
-  - React
-  - TypeScript
+     - React
+     - TypeScript
+     - Redux
 
 - Дизайн:
-  - Evergreen https://evergreen.segment.com/components/menu
+     - Evergreen https://evergreen.segment.com/components/menu
 
 # 7. Требования к дизайну
 
@@ -285,3 +286,15 @@
 В нижней части страницы (в подвале) должно быть написано:
 
 «Работает на Open Source» со ссылкой на GitHub проекта.
+
+# 8. App Storage
+
+- localStorage:
+
+     - JWT Token
+
+- Redux
+
+     - App:
+       isAuth
+       isCoach
