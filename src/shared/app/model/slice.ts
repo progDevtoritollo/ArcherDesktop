@@ -1,23 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-	isAuth: false,
-	isCoach: false,
-};
+const initialState = { new: null };
 
 export const appSlice = createSlice({
 	name: 'app',
 	initialState: initialState,
 	reducers: {
-		SetIsAuth: (state, action) => {
-			state.isAuth = action.payload;
-		},
-		SetIsCoach: (state, action) => {
-			state.isCoach = action.payload;
+		setNew: (state, action) => {
+			state.new = action.payload;
 		},
 	},
 });
 
-export const { SetIsAuth, SetIsCoach } = appSlice.actions;
+export const { setNew } = appSlice.actions;
 
 export default appSlice.reducer;
