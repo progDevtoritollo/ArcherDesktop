@@ -5,7 +5,8 @@ import Dashboard from 'pages/Dashboard';
 import Menu from 'widgets/Menu';
 
 import './index.scss';
-import UserSettings from 'pages/UserSettings';
+import UserSettings from 'pages/userSettings';
+import UserNotification from 'pages/userNotification';
 
 const BasedPage = () => {
 	return (
@@ -25,7 +26,11 @@ const BasedPage = () => {
 						element={<TestPage />}
 					/>
 					<Route
-						path='/user-settings'
+						path='/user/notifications'
+						element={<UserNotification />}
+					/>
+					<Route
+						path='/user/settings'
 						element={<UserSettings />}
 					/>
 					<Route
