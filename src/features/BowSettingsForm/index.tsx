@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Input, Button } from 'antd';
 import { useMutation, useQuery } from 'react-query';
 
-import userService from 'entities/viewer/api/userService';
+import userService from 'shared/api/user/userService';
 import { BowSettingsType } from 'app/types/types';
 
 type Props = {};

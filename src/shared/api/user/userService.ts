@@ -1,4 +1,4 @@
-import apiClient from 'app/http-common';
+import apiClient from 'shared/api/http-common';
 
 class UserService {
 	// API_USER_BY_ID= API + '/user/'

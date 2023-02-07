@@ -32,7 +32,7 @@ const CardEvent = ({ name, event, opponentScore = 0, time, userScore, opponentNa
 							/>
 						</div>
 
-						<div className='text'>
+						<div className='center'>
 							<div className='card__name'>{name}</div>
 							<div className='card__description'>check</div>
 						</div>
@@ -54,7 +54,7 @@ const CardEvent = ({ name, event, opponentScore = 0, time, userScore, opponentNa
 								icon={<UserOutlined />}
 							/>
 						</div>
-						<div className='text'>
+						<div className='center'>
 							<div className='card__name'>{name}</div>
 							<div className='card__description'>
 								duel with
@@ -87,7 +87,7 @@ const CardEvent = ({ name, event, opponentScore = 0, time, userScore, opponentNa
 								icon={<UserOutlined />}
 							/>
 						</div>
-						<div className='text'>
+						<div className='center'>
 							<div className='card__name'>{name}</div>
 							<div className='card__description'>{event}</div>
 						</div>

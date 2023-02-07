@@ -1,8 +1,8 @@
-import CardEvent from 'entities/eventCard/ui';
+import CardEvent from 'entities/event/ui';
 import { Link } from 'react-router-dom';
 import CardBlock from 'shared/ui/CardBlock';
 
-const arr = [
+const arrEvents = [
 	{
 		id: 3535,
 		username: 'Игорь Марусич',
@@ -65,11 +65,12 @@ const TestPage = () => {
 	return (
 		<div>
 			<h1>Test Page</h1>
+			<h1>Events Card</h1>
 
-			{arr.map(({ id, username, score, opponentScore, event, time, opponentName, userPhoto, competitionPlace }) => (
-				<CardBlock key={id.toString()}>
+			{arrEvents.map(({ id, username, score, opponentScore, event, time, opponentName, userPhoto, competitionPlace }) => (
+				<CardBlock key={id}>
 					<CardEvent
-						key={id.toString()}
+						key={id}
 						name={username}
 						event={event}
 						userScore={score}
@@ -81,6 +82,7 @@ const TestPage = () => {
 					/>
 				</CardBlock>
 			))}
+
 			<div>
 				<Link to='/dashboard'>Dashboard</Link>
 			</div>

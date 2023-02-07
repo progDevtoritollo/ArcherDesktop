@@ -1,0 +1,42 @@
+.card-content {
+	max-width: 530px;
+	min-width: 480px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	.left {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-right: 12px;
+	}
+
+	.right {
+		display: flex;
+		align-items: center;
+	}
+	&__icon {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	&__name {
+		padding-left: 12px;
+	}
+	&__time {
+	}
+	//check
+	&__check-score {
+	}
+
+	// competition
+	&__competition-place {
+		img {
+			height: 20px;
+			width: auto;
+			margin-bottom: -6px;
+		}
+		.number {
+		}
+	}
+}

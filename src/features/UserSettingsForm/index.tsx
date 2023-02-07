@@ -3,7 +3,7 @@ import { Form, Input, DatePicker, Button, TreeSelect } from 'antd';
 import dayjs from 'dayjs';
 import { useMutation, useQuery } from 'react-query';
 
-import userService from 'entities/viewer/api/userService';
+import userService from 'shared/api/user/userService';
 import { UserPersonalInformationType } from 'app/types/types';
 
 const dateFormat = 'YYYY-MM-DD';
