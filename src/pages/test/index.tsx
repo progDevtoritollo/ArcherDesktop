@@ -1,5 +1,6 @@
 import CardEvent from 'entities/event/ui';
 import { Link } from 'react-router-dom';
+import Button from 'shared/button/ui';
 import CardBlock from 'shared/ui/CardBlock';
 
 const arrEvents = [
@@ -62,10 +63,40 @@ const arrEvents = [
 ];
 
 const TestPage = () => {
+	const handleClick = () => {
+		alert('dummmmmm');
+	};
 	return (
 		<div>
 			<h1>Test Page</h1>
 			<h1>Events Card</h1>
+
+			<Button
+				onClick={handleClick}
+				text='Change target'
+				type={'blue'}
+			/>
+
+			<Button
+				onClick={handleClick}
+				text='Undo last'
+				type={'undo'}
+			/>
+			<Button
+				onClick={handleClick}
+				text='Reject'
+				type={'reject'}
+			/>
+			<Button
+				onClick={handleClick}
+				text='Label'
+				type={'usual'}
+			/>
+			<Button
+				onClick={handleClick}
+				text='Surrender'
+				type={'surrender'}
+			/>
 
 			{arrEvents.map(({ id, username, score, opponentScore, event, time, opponentName, userPhoto, competitionPlace }) => (
 				<CardBlock key={id}>
