@@ -88,6 +88,7 @@ const TestPage = () => {
 				type={'reject'}
 			/>
 			<Button
+				paddingSide={'50px'}
 				onClick={handleClick}
 				text='Label'
 				type={'usual'}

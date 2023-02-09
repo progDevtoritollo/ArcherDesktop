@@ -6,16 +6,11 @@ interface ButtonComponentProps {
 	// className?: string;
 	text: string;
 	type: string;
+	paddingSide?: string;
 	onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-// const Button = ({ text, className }: ButtonComponentProps) => (
-// 	<div>
-// 		<button className={classNames('button', className)}>{text}</button>
-// 	</div>
-// );
-
-const Button = ({ text, type, onClick }: ButtonComponentProps) => {
+const Button = ({ text, type, onClick, paddingSide }: ButtonComponentProps) => {
 	switch (type) {
 		case 'blue':
 			return (
@@ -41,8 +36,10 @@ const Button = ({ text, type, onClick }: ButtonComponentProps) => {
 			return (
 				<div>
 					<button
+						// style={padding-left=50px}
 						className={classNames('button', type)}
-						onClick={onClick}>
+						onClick={onClick}
+						style={{ paddingLeft: paddingSide, paddingRight: paddingSide }}>
 						{text}
 					</button>
 				</div>
