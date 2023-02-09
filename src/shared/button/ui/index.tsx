@@ -16,6 +16,7 @@ const Button = ({ text, type, onClick, paddingSide }: ButtonComponentProps) => {
 			return (
 				<div>
 					<button
+						type='button'
 						className={classNames('button', type)}
 						onClick={onClick}>
 						{text}
@@ -26,6 +27,7 @@ const Button = ({ text, type, onClick, paddingSide }: ButtonComponentProps) => {
 			return (
 				<div>
 					<button
+						type='button'
 						className={classNames('button', type)}
 						onClick={onClick}>
 						{text}
@@ -36,7 +38,7 @@ const Button = ({ text, type, onClick, paddingSide }: ButtonComponentProps) => {
 			return (
 				<div>
 					<button
-						// style={padding-left=50px}
+						type='button'
 						className={classNames('button', type)}
 						onClick={onClick}
 						style={{ paddingLeft: paddingSide, paddingRight: paddingSide }}>
@@ -48,6 +50,7 @@ const Button = ({ text, type, onClick, paddingSide }: ButtonComponentProps) => {
 			return (
 				<div>
 					<button
+						type='button'
 						className={classNames('button', type)}
 						onClick={onClick}>
 						{/* {text} <div className='line' /> */}
@@ -89,6 +92,7 @@ const Button = ({ text, type, onClick, paddingSide }: ButtonComponentProps) => {
 			return (
 				<div>
 					<button
+						type='button'
 						className={classNames('button', type)}
 						onClick={onClick}>
 						{text}
@@ -99,6 +103,7 @@ const Button = ({ text, type, onClick, paddingSide }: ButtonComponentProps) => {
 			return (
 				<div>
 					<button
+						type='button'
 						className={classNames('button', type)}
 						onClick={onClick}>
 						error
