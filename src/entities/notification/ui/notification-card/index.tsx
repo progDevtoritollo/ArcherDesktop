@@ -1,12 +1,17 @@
 import React from 'react';
-import { Avatar, Button } from 'antd';
+import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+
+import Button from 'shared/button/ui';
+import { Notification } from 'shared/api/notifications/models';
 
 import './index.scss';
 
-import { Notification } from 'shared/api/notifications/models';
-
 const NotificationCard = ({ userName, typeNotification, userPhoto, paymentDay, nickname }: Notification) => {
+	const handleClick = () => {
+		alert('dummmmmm');
+	};
+
 	switch (typeNotification) {
 		case 'payment':
 			return (
@@ -34,10 +39,11 @@ const NotificationCard = ({ userName, typeNotification, userPhoto, paymentDay, n
 
 					<div className='right'>
 						<Button
-							className='card-content__button'
-							type='primary'>
-							Pay
-						</Button>
+							paddingSide={'40px'}
+							onClick={handleClick}
+							text='Pay'
+							type={'usual'}
+						/>
 					</div>
 				</div>
 			);
@@ -58,10 +64,11 @@ const NotificationCard = ({ userName, typeNotification, userPhoto, paymentDay, n
 					</div>
 					<div className='right'>
 						<Button
-							className='card-content__button'
-							type='primary'>
-							Go to friend invite
-						</Button>
+							paddingSide={'20px'}
+							onClick={handleClick}
+							text='Go to friend invite'
+							type={'usual'}
+						/>
 					</div>
 				</div>
 			);
@@ -82,10 +89,11 @@ const NotificationCard = ({ userName, typeNotification, userPhoto, paymentDay, n
 					</div>
 					<div className='right'>
 						<Button
-							className='card-content__button'
-							type='primary'>
-							Go to the duel{' '}
-						</Button>
+							paddingSide={'30px'}
+							onClick={handleClick}
+							text='Go to the duel'
+							type={'usual'}
+						/>
 					</div>
 				</div>
 			);
@@ -107,10 +115,11 @@ const NotificationCard = ({ userName, typeNotification, userPhoto, paymentDay, n
 
 					<div className='right'>
 						<Button
-							className='card-content__button'
-							type='primary'>
-							Go to the competition{' '}
-						</Button>
+							paddingSide={'15px'}
+							onClick={handleClick}
+							text='Go to the competition'
+							type={'usual'}
+						/>
 					</div>
 				</div>
 			);
