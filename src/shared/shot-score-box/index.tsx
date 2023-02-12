@@ -11,7 +11,6 @@ const ShotScore = ({ shotScore }: ShotScoreProps) => {
 	const [color, setColor] = useState<string>('');
 
 	useEffect(() => {
-		console.log(shotScore);
 		switch (shotScore) {
 			case 10 || 9:
 				setColor('yellow-box');
