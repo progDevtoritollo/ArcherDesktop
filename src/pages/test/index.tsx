@@ -2,6 +2,7 @@ import CardEvent from 'entities/event/ui';
 import { Link } from 'react-router-dom';
 import Button from 'shared/button/ui';
 import SerieInfoSection from 'shared/serie-info-section';
+import ShotScore from 'shared/shot-score-box';
 import CardBlock from 'shared/ui/CardBlock';
 
 const arrEvents = [
@@ -73,7 +74,9 @@ const TestPage = () => {
 			<h1>Events Card</h1>
 
 			<SerieInfoSection InfoNumber={34} />
+			<br />
 
+			<ShotScore shotScore={10} />
 			<Button
 				onClick={handleClick}
 				text='Change target'
