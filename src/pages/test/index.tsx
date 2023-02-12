@@ -1,6 +1,7 @@
 import CardEvent from 'entities/event/ui';
 import { Link } from 'react-router-dom';
 import Button from 'shared/button/ui';
+import SerieInfoSection from 'shared/serie-info-section';
 import CardBlock from 'shared/ui/CardBlock';
 
 const arrEvents = [
@@ -70,6 +71,8 @@ const TestPage = () => {
 		<div>
 			<h1>Test Page</h1>
 			<h1>Events Card</h1>
+
+			<SerieInfoSection InfoNumber={34} />
 
 			<Button
 				onClick={handleClick}
