@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from 'shared/button/ui';
 import SerieInfoSection from 'shared/serie-info-section';
 import ShotScore from 'shared/shot-score-box';
+import TripleTarget from 'shared/Targets/TripleTarget/TripleTarget';
 import CardBlock from 'shared/ui/CardBlock';
 
 const arrEvents = [
@@ -75,7 +76,8 @@ const TestPage = () => {
 
 			<SerieInfoSection InfoNumber={34} />
 			<br />
-
+			<TripleTarget />
+			<br />
 			<ShotScore shotScore={10} />
 			<Button
 				onClick={handleClick}
