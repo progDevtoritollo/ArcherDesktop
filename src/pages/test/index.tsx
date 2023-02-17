@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from 'shared/button/ui';
 import SerieInfoSection from 'shared/serie-info-section';
 import ShotScore from 'shared/shot-score-box';
+import FullTarget from 'shared/Targets/FullTarget/FullTarget';
 import TripleTarget from 'shared/Targets/TripleTarget/TripleTarget';
 import CardBlock from 'shared/ui/CardBlock';
 
@@ -69,6 +70,10 @@ const TestPage = () => {
 	const handleClick = () => {
 		alert('dummmmmm');
 	};
+
+	const shotHandleClick = (e: any) => {
+		console.log(e.clientX, e.clientY, e.target.getAttribute('id'));
+	};
 	return (
 		<div>
 			<h1>Test Page</h1>
@@ -76,7 +81,9 @@ const TestPage = () => {
 
 			<SerieInfoSection InfoNumber={34} />
 			<br />
-			<TripleTarget />
+			<TripleTarget shotEvent={shotHandleClick} />
+			<br />
+			<FullTarget shotEvent={shotHandleClick} />
 			<br />
 			<ShotScore shotScore={10} />
 			<Button
