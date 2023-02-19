@@ -1,15 +1,12 @@
-import classNames from "classnames";
+import classNames from 'classnames';
 
-import "./index.scss";
-
+import './index.scss';
 
 interface BlockComponentProps {
-  className?: string
-  children: React.ReactNode
+	className?: string;
+	children: React.ReactNode;
 }
 
-const Block = ({ children, className }: BlockComponentProps) => (
-  <div className={classNames("block", className)}>{children}</div>
-);
+const Block = ({ children, className }: BlockComponentProps) => <div className={classNames('block-auth', className)}>{children}</div>;
 
 export default Block;
