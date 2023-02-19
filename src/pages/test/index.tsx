@@ -1,8 +1,7 @@
 import Event from 'entities/event/ui';
+import Serie from 'features/serie';
 import { Link } from 'react-router-dom';
 import Button from 'shared/button/ui';
-import SerieInfoSection from 'shared/serie-info-section';
-import ShotScore from 'shared/shot-score-box';
 import FullTarget from 'shared/Targets/FullTarget/FullTarget';
 import TripleTarget from 'shared/Targets/TripleTarget/TripleTarget';
 import CardBlock from 'shared/ui/CardBlock';
@@ -78,14 +77,26 @@ const TestPage = () => {
 		<div>
 			<h1>Test Page</h1>
 			<h1>Events Card</h1>
-
-			<SerieInfoSection InfoNumber={34} />
+			<Serie
+				isDuel={true}
+				isOpponents={false}
+				firstShot={9}
+				secondShot={3}
+				thirdShot={5}
+			/>
+			<br />
+			<Serie
+				isDuel={true}
+				isOpponents={true}
+				firstShot={10}
+				secondShot={8}
+				thirdShot={6}
+			/>
 			<br />
 			<TripleTarget shotEvent={shotHandleClick} />
 			<br />
 			<FullTarget shotEvent={shotHandleClick} />
 			<br />
-			<ShotScore shotScore={10} />
 			<Button
 				onClick={handleClick}
 				text='Change target'
@@ -113,7 +124,6 @@ const TestPage = () => {
 				text='Surrender'
 				type={'surrender'}
 			/>
-
 			{arrEvents.map(({ id, username, score, opponentScore, event, time, opponentName, userPhoto, competitionPlace }) => (
 				<CardBlock key={id}>
 					<Event
@@ -129,7 +139,6 @@ const TestPage = () => {
 					/>
 				</CardBlock>
 			))}
-
 			<div>
 				<Link to='/dashboard'>Dashboard</Link>
 			</div>

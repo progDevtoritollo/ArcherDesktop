@@ -1,0 +1,36 @@
+.serie {
+	max-width: 600px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	.whose {
+		margin-top: 16px;
+		margin-left: 8px;
+	}
+	.you {
+		margin-right: 47px;
+	}
+	.title {
+	}
+	&__series-number {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.serie__shots-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.serie__series-score {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+	.serie__set-pts {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+}
