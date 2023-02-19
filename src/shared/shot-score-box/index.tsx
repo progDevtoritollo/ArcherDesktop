@@ -12,19 +12,24 @@ const ShotScore = ({ shotScore }: ShotScoreProps) => {
 
 	useEffect(() => {
 		switch (shotScore) {
-			case 10 || 9:
+			case 10:
+			case 9:
 				setColor('yellow-box');
 				break;
-			case 8 || 7:
+			case 8:
+			case 7:
 				setColor('red-box');
 				break;
-			case 6 || 5:
+			case 6:
+			case 5:
 				setColor('blue-box');
 				break;
-			case 4 || 3:
+			case 4:
+			case 3:
 				setColor('black-box');
 				break;
-			case 2 || 1:
+			case 2:
+			case 1:
 				setColor('white-box');
 				break;
 			case 0:
