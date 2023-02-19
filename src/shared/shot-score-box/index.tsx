@@ -27,6 +27,9 @@ const ShotScore = ({ shotScore }: ShotScoreProps) => {
 			case 2 || 1:
 				setColor('white-box');
 				break;
+			case 0:
+				setColor('gray-box');
+				break;
 			default:
 				setColor('what-box');
 				break;
