@@ -1,4 +1,4 @@
-import CardEvent from 'entities/event/ui';
+import Event from 'entities/event/ui';
 import { Link } from 'react-router-dom';
 import Button from 'shared/button/ui';
 import SerieInfoSection from 'shared/serie-info-section';
@@ -12,7 +12,7 @@ const arrEvents = [
 		id: 3535,
 		username: 'Игорь Марусич',
 		score: 234,
-		event: 'check',
+		event: 'round',
 		time: '3 min',
 		userPhoto: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
 	},
@@ -116,7 +116,7 @@ const TestPage = () => {
 
 			{arrEvents.map(({ id, username, score, opponentScore, event, time, opponentName, userPhoto, competitionPlace }) => (
 				<CardBlock key={id}>
-					<CardEvent
+					<Event
 						key={id}
 						name={username}
 						event={event}

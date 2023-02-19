@@ -7,7 +7,7 @@ import bronze_trophy from 'app/assets/img/bronze_trophy.png';
 import silver_trophy from 'app/assets/img/silver_trophy.png';
 import './index.scss';
 
-interface CardEventProps {
+interface EventProps {
 	name: string;
 	event: string;
 	time: string;
@@ -18,45 +18,45 @@ interface CardEventProps {
 	userPhoto?: string;
 }
 
-const CardEvent = ({ name, event, opponentScore = 0, time, userScore, opponentName, userPhoto, competitionPlace }: CardEventProps) => {
+const Event = ({ name, event, opponentScore = 0, time, userScore, opponentName, userPhoto, competitionPlace }: EventProps) => {
 	switch (event) {
-		case 'check':
+		case 'round':
 			return (
-				<div className='card'>
+				<div className='event-card'>
 					<div className='left'>
-						<div className='card__avatar'>
+						<div className='event-card__avatar'>
 							<Avatar
 								src={userPhoto}
-								size='large'
+								size={45}
 								icon={<UserOutlined />}
 							/>
 						</div>
 
 						<div className='center'>
-							<div className='card__name'>{name}</div>
-							<div className='card__description'>check</div>
+							<div className='event-card__name'>{name}</div>
+							<div className='event-card__description'>round</div>
 						</div>
 					</div>
 					<div className='right'>
-						<div className='card__check-score'>{userScore}/300</div>
-						<div className='card__time'>{time}</div>
+						<div className='event-card__round-score'>{userScore}/300</div>
+						<div className='event-card__time'>{time}</div>
 					</div>
 				</div>
 			);
 		case 'duel':
 			return (
-				<div className='card'>
+				<div className='event-card'>
 					<div className='left'>
-						<div className='card__avatar'>
+						<div className='event-card__avatar'>
 							<Avatar
 								src={userPhoto}
-								size='large'
+								size={45}
 								icon={<UserOutlined />}
 							/>
 						</div>
 						<div className='center'>
-							<div className='card__name'>{name}</div>
-							<div className='card__description'>
+							<div className='event-card__name'>{name}</div>
+							<div className='event-card__description'>
 								duel with
 								{' ' + opponentName}
 							</div>
@@ -64,37 +64,37 @@ const CardEvent = ({ name, event, opponentScore = 0, time, userScore, opponentNa
 					</div>
 					<div className='right'>
 						{userScore <= opponentScore ? (
-							<div className='card__duel-score card__duel-score_lose'>
+							<div className='event-card__duel-score event-card__duel-score_lose'>
 								{userScore}:{opponentScore}
 							</div>
 						) : (
-							<div className='card__duel-score card__duel-score_win'>
+							<div className='event-card__duel-score event-card__duel-score_win'>
 								{userScore}:{opponentScore}
 							</div>
 						)}
-						<div className='card__time'>{time}</div>
+						<div className='event-card__time'>{time}</div>
 					</div>
 				</div>
 			);
 		case 'competition':
 			return (
-				<div className='card'>
+				<div className='event-card'>
 					<div className='left'>
-						<div className='card__avatar'>
+						<div className='event-card__avatar'>
 							<Avatar
 								src={userPhoto}
-								size='large'
+								size={45}
 								icon={<UserOutlined />}
 							/>
 						</div>
 						<div className='center'>
-							<div className='card__name'>{name}</div>
-							<div className='card__description'>{event}</div>
+							<div className='event-card__name'>{name}</div>
+							<div className='event-card__description'>{event}</div>
 						</div>
 					</div>
 
 					<div className='right'>
-						<div className='card__competition-place'>
+						<div className='event-card__competition-place'>
 							{competitionPlace === 1 ? (
 								<img
 									src={gold_trophy}
@@ -114,7 +114,7 @@ const CardEvent = ({ name, event, opponentScore = 0, time, userScore, opponentNa
 								</div>
 							)}
 						</div>
-						<div className='card__time'>{time}</div>
+						<div className='event-card__time'>{time}</div>
 					</div>
 				</div>
 			);
@@ -145,4 +145,4 @@ const CardEvent = ({ name, event, opponentScore = 0, time, userScore, opponentNa
 	// )
 };
 
-export default CardEvent;
+export default Event;
