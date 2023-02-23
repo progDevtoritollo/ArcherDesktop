@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Bullet from 'app/assets/img/bullet.png';
 
+import './index.scss';
+
 const WithShots = Target => {
 	const WithShots = props => {
 		const [bullet, setBullet] = useState([]);
@@ -9,10 +11,8 @@ const WithShots = Target => {
 		const shotHandleClick = (e: any) => {
 			let item = {
 				shotNumber: bullet.length,
-				// x: e.clientX - 50,
-				// y: e.clientY - 50,
-				x: e.clientX + 50,
-				y: e.clientY + 50,
+				x: e.nativeEvent.offsetX - 5,
+				y: e.nativeEvent.offsetY - 5,
 				score: +e.target.getAttribute('id'),
 			};
 			setBullet([...bullet, item]);
