@@ -1,10 +1,14 @@
+import { useState } from 'react';
+
+import Shots from 'entities/shot-rendering-hoc';
 import Event from 'entities/event/ui';
 import Serie from 'features/serie';
 import { Link } from 'react-router-dom';
 import Button from 'shared/button/ui';
-import FullTarget from 'shared/Targets/FullTarget/FullTarget';
 import TripleTarget from 'shared/Targets/TripleTarget/TripleTarget';
+import FullTarget from 'shared/Targets/FullTarget/FullTarget';
 import CardBlock from 'shared/ui/CardBlock';
+import WithShots from 'entities/shot-rendering-hoc';
 
 const arrEvents = [
 	{
@@ -65,14 +69,14 @@ const arrEvents = [
 	},
 ];
 
+const TripleTargetShotWrapper = WithShots(TripleTarget);
+const FullTargetShotWrapper = WithShots(FullTarget);
+
 const TestPage = () => {
 	const handleClick = () => {
 		alert('dummmmmm');
 	};
 
-	const shotHandleClick = (e: any) => {
-		console.log(e.clientX, e.clientY, e.target.getAttribute('id'));
-	};
 	return (
 		<div>
 			<h1>Test Page</h1>
@@ -93,16 +97,15 @@ const TestPage = () => {
 				thirdShot={6}
 			/>
 			<br />
-			<TripleTarget shotEvent={shotHandleClick} />
-			<br />
-			<FullTarget shotEvent={shotHandleClick} />
+			<TripleTargetShotWrapper />
+			<FullTargetShotWrapper />
+
 			<br />
 			<Button
 				onClick={handleClick}
 				text='Change target'
 				type={'blue'}
 			/>
-
 			<Button
 				onClick={handleClick}
 				text='Undo last'
