@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Shots from 'entities/shot-rendering-hoc';
 import Event from 'entities/event/ui';
-import Serie from 'features/serie';
+import Serie from 'shared/serie-row';
 import { Link } from 'react-router-dom';
 import Button from 'shared/button/ui';
 import TripleTarget from 'shared/Targets/TripleTarget/TripleTarget';
