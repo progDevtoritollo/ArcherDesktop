@@ -29,10 +29,10 @@ const WithShots = Target => {
 
 						return (
 							<img
-								key={value.y + value.x}
+								key={value.shotNumber}
 								style={{ position: 'absolute', left: value.x, top: value.y }}
 								src={Bullet}
-								width={15}
+								width={7}
 								alt='bullet'
 							/>
 						);
