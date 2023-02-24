@@ -10,7 +10,7 @@ const WithShots = Target => {
 
 		const shotHandleClick = (e: any) => {
 			let item = {
-				shotNumber: bullet.length,
+				shotNumber: bullet.length + 1,
 				x: e.nativeEvent.offsetX - 5,
 				y: e.nativeEvent.offsetY - 5,
 				score: +e.target.getAttribute('id'),
