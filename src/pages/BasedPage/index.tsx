@@ -7,6 +7,7 @@ import Menu from 'widgets/Menu';
 import './index.scss';
 import UserSettings from 'pages/userSettings';
 import UserNotification from 'pages/userNotification';
+import RoundPage from 'pages/create-round';
 
 const BasedPage = () => {
 	return (
@@ -20,6 +21,10 @@ const BasedPage = () => {
 					<Route
 						path='/dashboard'
 						element={<Dashboard />}
+					/>
+					<Route
+						path='/create/round'
+						element={<RoundPage />}
 					/>
 					<Route
 						path='/test'
