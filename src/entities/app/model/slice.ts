@@ -1,8 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+enum targetTypeEnum {
+	fullTarget = 'full target',
+	tripleTarget = 'triple',
+}
+
 const initialState = {
 	isAuth: false,
 	isCoach: false,
+	targetType: targetTypeEnum.fullTarget,
 };
 
 export const appSlice = createSlice({
