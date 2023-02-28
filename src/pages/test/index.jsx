@@ -4,10 +4,7 @@ import Event from 'entities/event/ui';
 import Serie from 'shared/serie-row';
 import { Link } from 'react-router-dom';
 import Button from 'shared/button/ui';
-import TripleTarget from 'shared/Targets/TripleTarget/TripleTarget';
-import FullTarget from 'shared/Targets/FullTarget/FullTarget';
 import CardBlock from 'shared/ui/CardBlock';
-import WithShots from 'entities/shot-rendering-hoc';
 
 const arrEvents = [
 	{
@@ -68,9 +65,6 @@ const arrEvents = [
 	},
 ];
 
-const TripleTargetShotWrapper = WithShots(TripleTarget);
-const FullTargetShotWrapper = WithShots(FullTarget);
-
 const TestPage = () => {
 	const handleClick = () => {
 		alert('dummmmmm');
@@ -79,7 +73,6 @@ const TestPage = () => {
 	return (
 		<div>
 			<h1>Test Page</h1>
-			<h1>Events Card</h1>
 			<Serie
 				isDuel={true}
 				isOpponents={false}
@@ -96,8 +89,6 @@ const TestPage = () => {
 				thirdShot={6}
 			/>
 			<br />
-			<TripleTargetShotWrapper />
-			<FullTargetShotWrapper />
 
 			<br />
 			<Button
