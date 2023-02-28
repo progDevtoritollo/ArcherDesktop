@@ -3,7 +3,7 @@ export type Event = {
 	event: string;
 	time: string;
 	score: number;
-	userName?: string;
+	userName: string;
 	nickname?: string;
 	userPhoto?: string;
 	opponentScore?: number;

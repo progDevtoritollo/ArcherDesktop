@@ -8,6 +8,7 @@ import './index.scss';
 import UserSettings from 'pages/userSettings';
 import UserNotification from 'pages/userNotification';
 import RoundPage from 'pages/create-round';
+import UserActivity from 'pages/user-activity';
 
 const BasedPage = () => {
 	return (
@@ -18,6 +19,10 @@ const BasedPage = () => {
 
 			<div className='base-page__page-content'>
 				<Routes>
+					<Route
+						path='/user/activity'
+						element={<UserActivity />}
+					/>
 					<Route
 						path='/dashboard'
 						element={<Dashboard />}

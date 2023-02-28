@@ -8,7 +8,7 @@ import silver_trophy from 'app/assets/img/silver_trophy.png';
 import './index.scss';
 
 interface EventProps {
-	name: string;
+	userName?: string;
 	event: string;
 	time: string;
 	userScore: number;
@@ -18,7 +18,7 @@ interface EventProps {
 	userPhoto?: string;
 }
 
-const Event = ({ name, event, opponentScore = 0, time, userScore, opponentName, userPhoto, competitionPlace }: EventProps) => {
+const Event = ({ userName, event, opponentScore = 0, time, userScore, opponentName, userPhoto, competitionPlace }: EventProps) => {
 	switch (event) {
 		case 'round':
 			return (
@@ -33,7 +33,7 @@ const Event = ({ name, event, opponentScore = 0, time, userScore, opponentName, 
 						</div>
 
 						<div className='center'>
-							<div className='event-card__name'>{name}</div>
+							<div className='event-card__name'>{userName}</div>
 							<div className='event-card__description'>round</div>
 						</div>
 					</div>
@@ -55,7 +55,7 @@ const Event = ({ name, event, opponentScore = 0, time, userScore, opponentName, 
 							/>
 						</div>
 						<div className='center'>
-							<div className='event-card__name'>{name}</div>
+							<div className='event-card__name'>{userName}</div>
 							<div className='event-card__description'>
 								duel with
 								{' ' + opponentName}
@@ -88,7 +88,7 @@ const Event = ({ name, event, opponentScore = 0, time, userScore, opponentName, 
 							/>
 						</div>
 						<div className='center'>
-							<div className='event-card__name'>{name}</div>
+							<div className='event-card__name'>{userName}</div>
 							<div className='event-card__description'>{event}</div>
 						</div>
 					</div>
