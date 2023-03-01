@@ -16,12 +16,15 @@ const shotsSlice = createSlice({
 		addShot(state, { payload }: PayloadAction<Shot>) {
 			state.items = [...state.items, payload];
 		},
+		delLastShot(state) {
+			state.items = state.items.slice(0, -1);
+		},
 		clearShotsList(state) {
 			state.items = [];
 		},
 	},
 });
 
-export const { setShotsList, clearShotsList, addShot } = shotsSlice.actions;
+export const { setShotsList, clearShotsList, addShot, delLastShot } = shotsSlice.actions;
 
 export default shotsSlice.reducer;
