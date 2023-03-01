@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
 import Bullet from 'app/assets/img/bullet.png';
 
 import './index.scss';
+import { addShot } from 'entities/shots/model/slice';
 
 const WithShots = Target => {
 	const WithShots = props => {
+		const dispatch = useDispatch();
 		const [bullet, setBullet] = useState([]);
 		// const [bullet, setBullet] = useState([{ shotNumber: 0, x: -10, y: -10, score: 0 }]);
 
@@ -16,6 +20,7 @@ const WithShots = Target => {
 				score: +e.target.getAttribute('id'),
 			};
 			setBullet([...bullet, item]);
+			dispatch(addShot(item));
 		};
 
 		return (
