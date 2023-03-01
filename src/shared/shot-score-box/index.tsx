@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import './index.scss';
 
 interface ShotScoreProps {
-	shotScore: number;
+	shotScore: number | null;
 }
 
 const ShotScore = ({ shotScore }: ShotScoreProps) => {
@@ -33,6 +33,7 @@ const ShotScore = ({ shotScore }: ShotScoreProps) => {
 				setColor('white-box');
 				break;
 			case 0:
+			case null:
 				setColor('gray-box');
 				break;
 			default:
@@ -41,7 +42,7 @@ const ShotScore = ({ shotScore }: ShotScoreProps) => {
 		}
 	}, [shotScore]);
 
-	return <div className={classNames('shot-box', color)}>{shotScore}</div>;
+	return <div className={classNames('shot-box', color)}>{shotScore != null ? shotScore : <div>-</div>}</div>;
 
 	// return <div className={'shot-box'}>{shotScore}</div>;
 };

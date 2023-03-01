@@ -8,9 +8,9 @@ import './index.scss';
 interface SerieProp {
 	isDuel?: boolean;
 	seriesNumber?: number;
-	firstShot?: number;
-	secondShot?: number;
-	thirdShot?: number;
+	firstShot?: number | null;
+	secondShot?: number | null;
+	thirdShot?: number | null;
 	Set_pts?: number;
 	isOpponents?: boolean;
 }
@@ -19,20 +19,24 @@ const Serie = ({ isDuel = true, seriesNumber = 1, firstShot = 0, secondShot = 0,
 	const [seriesScore, setSeriesScore] = useState(0);
 
 	useEffect(() => {
-		let sum = firstShot + secondShot + thirdShot;
-		setSeriesScore(sum);
+		if (firstShot != null && secondShot != null && thirdShot != null) {
+			let sum = firstShot + secondShot + thirdShot;
+			setSeriesScore(sum);
+		}
 	}, [firstShot, secondShot, thirdShot]);
 
 	return (
 		<div className='serie'>
-			{isOpponents ? <div className='whose'>Opponent</div> : isDuel ? <div className='whose you'>You</div> : <div></div>}
+			{isOpponents ? <div className='whose'>Opponent</div> : isDuel ? <div className='whose you'>You</div> : null}
 
 			<div className='serie__series-number'>
-				<div className='title'>Series number</div>
+				{/* {seriesNumber <= 1 ? <div className='title'>Series number</div> : null} */}
+
 				<SerieInfoSection InfoNumber={seriesNumber} />
 			</div>
 			<div className='serie__shots-section'>
-				<div className='title'>Shots</div>
+				{/* {seriesNumber <= 1 && !isOpponents ? <div className='title'>Shots</div> : null} */}
+
 				<div className='shots-section__shots-container'>
 					<ShotScore shotScore={firstShot} />
 					<ShotScore shotScore={secondShot} />
@@ -40,17 +44,16 @@ const Serie = ({ isDuel = true, seriesNumber = 1, firstShot = 0, secondShot = 0,
 				</div>
 			</div>
 			<div className='serie__series-score'>
-				<div className='title'>Series score</div>
+				{/* {seriesNumber <= 1 ? <div className='title'>Series score</div> : null} */}
+
 				<SerieInfoSection InfoNumber={seriesScore} />
 			</div>
 			{isDuel ? (
 				<div className='serie__set-pts'>
-					<div className='title'>Set pts</div>
+					{/* <div className='title'>Set pts</div> */}
 					<SerieInfoSection InfoNumber={Set_pts} />
 				</div>
-			) : (
-				<div></div>
-			)}
+			) : null}
 		</div>
 	);
 };
