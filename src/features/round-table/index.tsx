@@ -16,79 +16,80 @@ interface SerieForRound {
 
 const RoundTable = () => {
 	const { items } = useSelector(selectContestData);
-
-	// const [series, setSeries] = useState<SerieForRound[]>([
-	// 	{
-	// 		key: 0,
-	// 		seriesNumber: 0,
-	// 		firstShot: null,
-	// 		secondShot: null,
-	// 		thirdShot: null,
-	// 	},
-	// 	{
-	// 		key: 1,
-	// 		seriesNumber: 1,
-	// 		firstShot: null,
-	// 		secondShot: null,
-	// 		thirdShot: null,
-	// 	},
-	// 	{
-	// 		key: 2,
-	// 		seriesNumber: 2,
-	// 		firstShot: null,
-	// 		secondShot: null,
-	// 		thirdShot: null,
-	// 	},
-	// 	{
-	// 		key: 3,
-	// 		seriesNumber: 3,
-	// 		firstShot: null,
-	// 		secondShot: null,
-	// 		thirdShot: null,
-	// 	},
-	// 	{
-	// 		key: 4,
-	// 		seriesNumber: 4,
-	// 		firstShot: null,
-	// 		secondShot: null,
-	// 		thirdShot: null,
-	// 	},
-	// 	{
-	// 		key: 5,
-	// 		seriesNumber: 5,
-	// 		firstShot: null,
-	// 		secondShot: null,
-	// 		thirdShot: null,
-	// 	},
-	// 	{
-	// 		key: 6,
-	// 		seriesNumber: 6,
-	// 		firstShot: null,
-	// 		secondShot: null,
-	// 		thirdShot: null,
-	// 	},
-	// 	{
-	// 		key: 7,
-	// 		seriesNumber: 7,
-	// 		firstShot: null,
-	// 		secondShot: null,
-	// 		thirdShot: null,
-	// 	},
-	// 	{
-	// 		key: 8,
-	// 		seriesNumber: 8,
-	// 		firstShot: null,
-	// 		secondShot: null,
-	// 		thirdShot: null,
-	// 	},
-	// 	{
-	// 		key: 9,
-	// 		seriesNumber: 9,
-	// 		firstShot: null,
-	// 		secondShot: null,
-	// 		thirdShot: null,
-	// 	},
-	// ]);
+	{
+		// const [series, setSeries] = useState<SerieForRound[]>([
+		// 	{
+		// 		key: 0,
+		// 		seriesNumber: 0,
+		// 		firstShot: null,
+		// 		secondShot: null,
+		// 		thirdShot: null,
+		// 	},
+		// 	{
+		// 		key: 1,
+		// 		seriesNumber: 1,
+		// 		firstShot: null,
+		// 		secondShot: null,
+		// 		thirdShot: null,
+		// 	},
+		// 	{
+		// 		key: 2,
+		// 		seriesNumber: 2,
+		// 		firstShot: null,
+		// 		secondShot: null,
+		// 		thirdShot: null,
+		// 	},
+		// 	{
+		// 		key: 3,
+		// 		seriesNumber: 3,
+		// 		firstShot: null,
+		// 		secondShot: null,
+		// 		thirdShot: null,
+		// 	},
+		// 	{
+		// 		key: 4,
+		// 		seriesNumber: 4,
+		// 		firstShot: null,
+		// 		secondShot: null,
+		// 		thirdShot: null,
+		// 	},
+		// 	{
+		// 		key: 5,
+		// 		seriesNumber: 5,
+		// 		firstShot: null,
+		// 		secondShot: null,
+		// 		thirdShot: null,
+		// 	},
+		// 	{
+		// 		key: 6,
+		// 		seriesNumber: 6,
+		// 		firstShot: null,
+		// 		secondShot: null,
+		// 		thirdShot: null,
+		// 	},
+		// 	{
+		// 		key: 7,
+		// 		seriesNumber: 7,
+		// 		firstShot: null,
+		// 		secondShot: null,
+		// 		thirdShot: null,
+		// 	},
+		// 	{
+		// 		key: 8,
+		// 		seriesNumber: 8,
+		// 		firstShot: null,
+		// 		secondShot: null,
+		// 		thirdShot: null,
+		// 	},
+		// 	{
+		// 		key: 9,
+		// 		seriesNumber: 9,
+		// 		firstShot: null,
+		// 		secondShot: null,
+		// 		thirdShot: null,
+		// 	},
+		// ]);
+	}
 
 	const [currentSeries, setCurrentSeries] = useState<SerieForRound>({
 		key: 0,
