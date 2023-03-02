@@ -7,7 +7,7 @@ interface SerieInfoSectionProps {
 }
 
 const SerieInfoSection = ({ InfoNumber }: SerieInfoSectionProps) => {
-	return <div className='box'>{InfoNumber}</div>;
+	return <div className='box'>{Math.round(InfoNumber)}</div>;
 };
 
 export default SerieInfoSection;

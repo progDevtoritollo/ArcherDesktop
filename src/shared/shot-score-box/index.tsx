@@ -9,9 +9,8 @@ interface ShotScoreProps {
 
 const ShotScore = ({ shotScore }: ShotScoreProps) => {
 	const [color, setColor] = useState<string>('');
-
 	useEffect(() => {
-		switch (shotScore) {
+		switch (shotScore != null ? Math.round(shotScore) : null) {
 			case 10:
 			case 9:
 				setColor('yellow-box');
@@ -42,7 +41,7 @@ const ShotScore = ({ shotScore }: ShotScoreProps) => {
 		}
 	}, [shotScore]);
 
-	return <div className={classNames('shot-box', color)}>{shotScore != null ? shotScore : <div>-</div>}</div>;
+	return <div className={classNames('shot-box', color)}>{shotScore != null ? Math.round(shotScore) : <div>-</div>}</div>;
 
 	// return <div className={'shot-box'}>{shotScore}</div>;
 };
