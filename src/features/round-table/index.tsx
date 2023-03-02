@@ -91,8 +91,8 @@ const RoundTable = () => {
 	// ]);
 
 	const [currentSeries, setCurrentSeries] = useState<SerieForRound>({
-		key: -1,
-		seriesNumber: -1,
+		key: 0,
+		seriesNumber: 0,
 		firstShot: null,
 		secondShot: null,
 		thirdShot: null,
@@ -152,7 +152,7 @@ const RoundTable = () => {
 			<div className='round-table__series'>
 				<Serie
 					key={currentSeries.key}
-					seriesNumber={currentSeries.seriesNumber + 1}
+					seriesNumber={currentSeries.seriesNumber}
 					firstShot={currentSeries.firstShot}
 					secondShot={currentSeries.secondShot}
 					thirdShot={currentSeries.thirdShot}

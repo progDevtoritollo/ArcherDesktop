@@ -32,7 +32,7 @@ const Serie = ({ isDuel = true, seriesNumber = 1, firstShot = 0, secondShot = 0,
 			<div className='serie__series-number'>
 				{/* {seriesNumber <= 1 ? <div className='title'>Series number</div> : null} */}
 
-				<SerieInfoSection InfoNumber={seriesNumber} />
+				<SerieInfoSection InfoNumber={seriesNumber <= 0 ? seriesNumber + 1 : seriesNumber} />
 			</div>
 			<div className='serie__shots-section'>
 				{/* {seriesNumber <= 1 && !isOpponents ? <div className='title'>Shots</div> : null} */}
