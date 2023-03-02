@@ -159,7 +159,7 @@ const RoundTable = () => {
 					isDuel={false}
 				/>
 				<br />
-				{series.map(({ key, firstShot, secondShot, thirdShot }, index) => (
+				{/* {series.map(({ key, firstShot, secondShot, thirdShot }, index) => (
 					<Serie
 						key={key}
 						seriesNumber={index + 1}
@@ -168,7 +168,7 @@ const RoundTable = () => {
 						thirdShot={thirdShot}
 						isDuel={false}
 					/>
-				))}
+				))} */}
 			</div>
 		</div>
 	);
