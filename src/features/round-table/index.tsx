@@ -1,4 +1,4 @@
-import { selectShotData } from 'entities/shots/model/selectors';
+import { selectContestData } from 'entities/contest/model/selectors';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -7,7 +7,7 @@ import Serie from 'shared/serie-row';
 import './index.scss';
 
 interface SerieForRound {
-	key: number | null;
+	key: number;
 	seriesNumber: number;
 	firstShot: number | null;
 	secondShot: number | null;
@@ -15,80 +15,80 @@ interface SerieForRound {
 }
 
 const RoundTable = () => {
-	const { items } = useSelector(selectShotData);
+	const { items } = useSelector(selectContestData);
 
-	const [series, setSeries] = useState<SerieForRound[]>([
-		{
-			key: 0,
-			seriesNumber: 0,
-			firstShot: null,
-			secondShot: null,
-			thirdShot: null,
-		},
-		{
-			key: 1,
-			seriesNumber: 1,
-			firstShot: null,
-			secondShot: null,
-			thirdShot: null,
-		},
-		{
-			key: 2,
-			seriesNumber: 2,
-			firstShot: null,
-			secondShot: null,
-			thirdShot: null,
-		},
-		{
-			key: 3,
-			seriesNumber: 3,
-			firstShot: null,
-			secondShot: null,
-			thirdShot: null,
-		},
-		{
-			key: 4,
-			seriesNumber: 4,
-			firstShot: null,
-			secondShot: null,
-			thirdShot: null,
-		},
-		{
-			key: 5,
-			seriesNumber: 5,
-			firstShot: null,
-			secondShot: null,
-			thirdShot: null,
-		},
-		{
-			key: 6,
-			seriesNumber: 6,
-			firstShot: null,
-			secondShot: null,
-			thirdShot: null,
-		},
-		{
-			key: 7,
-			seriesNumber: 7,
-			firstShot: null,
-			secondShot: null,
-			thirdShot: null,
-		},
-		{
-			key: 8,
-			seriesNumber: 8,
-			firstShot: null,
-			secondShot: null,
-			thirdShot: null,
-		},
-		{
-			key: 9,
-			seriesNumber: 9,
-			firstShot: null,
-			secondShot: null,
-			thirdShot: null,
-		},
-	]);
+	// const [series, setSeries] = useState<SerieForRound[]>([
+	// 	{
+	// 		key: 0,
+	// 		seriesNumber: 0,
+	// 		firstShot: null,
+	// 		secondShot: null,
+	// 		thirdShot: null,
+	// 	},
+	// 	{
+	// 		key: 1,
+	// 		seriesNumber: 1,
+	// 		firstShot: null,
+	// 		secondShot: null,
+	// 		thirdShot: null,
+	// 	},
+	// 	{
+	// 		key: 2,
+	// 		seriesNumber: 2,
+	// 		firstShot: null,
+	// 		secondShot: null,
+	// 		thirdShot: null,
+	// 	},
+	// 	{
+	// 		key: 3,
+	// 		seriesNumber: 3,
+	// 		firstShot: null,
+	// 		secondShot: null,
+	// 		thirdShot: null,
+	// 	},
+	// 	{
+	// 		key: 4,
+	// 		seriesNumber: 4,
+	// 		firstShot: null,
+	// 		secondShot: null,
+	// 		thirdShot: null,
+	// 	},
+	// 	{
+	// 		key: 5,
+	// 		seriesNumber: 5,
+	// 		firstShot: null,
+	// 		secondShot: null,
+	// 		thirdShot: null,
+	// 	},
+	// 	{
+	// 		key: 6,
+	// 		seriesNumber: 6,
+	// 		firstShot: null,
+	// 		secondShot: null,
+	// 		thirdShot: null,
+	// 	},
+	// 	{
+	// 		key: 7,
+	// 		seriesNumber: 7,
+	// 		firstShot: null,
+	// 		secondShot: null,
+	// 		thirdShot: null,
+	// 	},
+	// 	{
+	// 		key: 8,
+	// 		seriesNumber: 8,
+	// 		firstShot: null,
+	// 		secondShot: null,
+	// 		thirdShot: null,
+	// 	},
+	// 	{
+	// 		key: 9,
+	// 		seriesNumber: 9,
+	// 		firstShot: null,
+	// 		secondShot: null,
+	// 		thirdShot: null,
+	// 	},
+	// ]);
 
 	const [currentSeries, setCurrentSeries] = useState<SerieForRound>({
 		key: -1,
@@ -99,26 +99,26 @@ const RoundTable = () => {
 	});
 
 	useEffect(() => {
-		console.log('State - series', series);
+		// console.log('State - series', series);
 		// console.log('Store - shots', items);
 
-		items.map(({ score, shotNumber }, index) => {
+		items.map(({ score, shotNumber }) => {
 			if (shotNumber % 3 === 0) {
 				//third shot
 				setCurrentSeries({
 					...currentSeries,
 					thirdShot: score,
 				});
-				series[currentSeries.seriesNumber] = currentSeries;
-				setSeries(series);
+				// series[currentSeries.seriesNumber] = currentSeries;
+				// setSeries(series);
 			} else if (shotNumber % 3 === 2) {
 				// second shot
 				setCurrentSeries({
 					...currentSeries,
 					secondShot: score,
 				});
-				series[currentSeries.seriesNumber] = currentSeries;
-				setSeries(series);
+				// series[currentSeries.seriesNumber] = currentSeries;
+				// setSeries(series);
 			} else if (shotNumber % 3 === 1) {
 				// } else {
 
@@ -130,8 +130,8 @@ const RoundTable = () => {
 					secondShot: null,
 					thirdShot: null,
 				});
-				series[currentSeries.seriesNumber] = currentSeries;
-				setSeries(series);
+				// series[currentSeries.seriesNumber] = currentSeries;
+				// setSeries(series);
 			}
 			// console.log('index', index);
 			// console.log('shotNumber', shotNumber);

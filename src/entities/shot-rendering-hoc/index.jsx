@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Bullet from 'app/assets/img/bullet.png';
 
 import './index.scss';
-import { addShot } from 'entities/shots/model/slice';
+import { addShot } from 'entities/contest/model/slice';
 
 const WithShots = Target => {
 	const WithShots = props => {
@@ -30,7 +30,9 @@ const WithShots = Target => {
 					style={{ position: 'relative' }}>
 					<Target shotEvent={shotHandleClick} />
 					{bullet.map(value => {
-						console.log(bullet.length, value);
+						{
+							/* console.log(bullet.length, value); */
+						}
 
 						return (
 							<img
