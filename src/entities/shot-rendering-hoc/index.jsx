@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Bullet from 'app/assets/img/bullet.png';
-import { addShot } from 'entities/contest/model/slice';
+import { addShot, delLastShot } from 'entities/contest/model/slice';
 import { selectContestData } from 'entities/contest/model/selectors';
 
 import './index.scss';
+import Button from 'shared/button/ui';
 
 const WithShots = Target => {
 	const WithShots = props => {
@@ -13,6 +14,19 @@ const WithShots = Target => {
 		const dispatch = useDispatch();
 		const [bullet, setBullet] = useState([]);
 		// const [bullet, setBullet] = useState([{ shotNumber: 0, x: -10, y: -10, score: 0 }]);
+		const handleButtonClickUndoLast = () => {
+			// console.log('before del', bullet);
+
+			let bulletWithoutLast = bullet.slice(0, -1);
+
+			setBullet(bulletWithoutLast);
+			dispatch(delLastShot());
+			// console.log('after del', bullet);
+		};
+
+		const handleButtonClickChangeTarget = () => {
+			setBullet([]);
+		};
 
 		const shotHandleClick = (e: any) => {
 			let contestLengthOfShots = contestType == 'round' ? 30 : 5;
@@ -32,7 +46,7 @@ const WithShots = Target => {
 		};
 
 		return (
-			<div>
+			<div className='target'>
 				<div
 					className='target-with-WithShots-hoc'
 					style={{ position: 'relative' }}>
@@ -52,6 +66,18 @@ const WithShots = Target => {
 							/>
 						);
 					})}
+				</div>
+				<div className='target__bottom-interaction'>
+					<Button
+						onClick={handleButtonClickChangeTarget}
+						text='Change target'
+						type={'blue'}
+					/>
+					<Button
+						onClick={handleButtonClickUndoLast}
+						text='Undo last'
+						type={'undo'}
+					/>
 				</div>
 			</div>
 		);
