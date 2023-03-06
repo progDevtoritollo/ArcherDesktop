@@ -13,15 +13,12 @@ const WithShots = Target => {
 		const { contestType, items } = useSelector(selectContestData);
 		const dispatch = useDispatch();
 		const [bullet, setBullet] = useState([]);
-		// const [bullet, setBullet] = useState([{ shotNumber: 0, x: -10, y: -10, score: 0 }]);
-		const handleButtonClickUndoLast = () => {
-			// console.log('before del', bullet);
 
+		const handleButtonClickUndoLast = () => {
 			let bulletWithoutLast = bullet.slice(0, -1);
 
 			setBullet(bulletWithoutLast);
 			dispatch(delLastShot());
-			// console.log('after del', bullet);
 		};
 
 		const handleButtonClickChangeTarget = () => {

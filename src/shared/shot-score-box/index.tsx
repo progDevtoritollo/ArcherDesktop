@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import './index.scss';
 
 interface ShotScoreProps {
-	shotScore: number | null;
+	shotScore: number | undefined;
 }
 
 const ShotScore = ({ shotScore }: ShotScoreProps) => {
 	const [color, setColor] = useState<string>('');
 	useEffect(() => {
-		switch (shotScore != null ? Math.round(shotScore) : null) {
+		switch (shotScore != undefined ? Math.round(shotScore) : undefined) {
 			case 10:
 			case 9:
 				setColor('yellow-box');
@@ -32,7 +32,7 @@ const ShotScore = ({ shotScore }: ShotScoreProps) => {
 				setColor('white-box');
 				break;
 			case 0:
-			case null:
+			case undefined:
 				setColor('gray-box');
 				break;
 			default:
@@ -41,7 +41,7 @@ const ShotScore = ({ shotScore }: ShotScoreProps) => {
 		}
 	}, [shotScore]);
 
-	return <div className={classNames('shot-box', color)}>{shotScore != null ? Math.round(shotScore) : <div>-</div>}</div>;
+	return <div className={classNames('shot-box', color)}>{shotScore != undefined ? Math.round(shotScore) : <div>-</div>}</div>;
 
 	// return <div className={'shot-box'}>{shotScore}</div>;
 };

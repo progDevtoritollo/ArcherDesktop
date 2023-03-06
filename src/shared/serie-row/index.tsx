@@ -8,18 +8,18 @@ import './index.scss';
 interface SerieProp {
 	isDuel?: boolean;
 	seriesNumber?: number;
-	firstShot?: number | null;
-	secondShot?: number | null;
-	thirdShot?: number | null;
+	firstShot?: number | undefined;
+	secondShot?: number | undefined;
+	thirdShot?: number | undefined;
 	Set_pts?: number;
 	isOpponents?: boolean;
 }
 
-const Serie = ({ isDuel = true, seriesNumber = 1, firstShot = 0, secondShot = 0, thirdShot = 0, Set_pts = 0, isOpponents = false }: SerieProp) => {
+const Serie = ({ isDuel = true, seriesNumber = 1, firstShot, secondShot, thirdShot, Set_pts = 0, isOpponents = false }: SerieProp) => {
 	const [seriesScore, setSeriesScore] = useState(0);
 
 	useEffect(() => {
-		if (firstShot != null && secondShot != null && thirdShot != null) {
+		if (firstShot != undefined && secondShot != undefined && thirdShot != undefined) {
 			let sum = firstShot + secondShot + thirdShot;
 			setSeriesScore(sum);
 		}
