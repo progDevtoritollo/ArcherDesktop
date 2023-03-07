@@ -1,7 +1,11 @@
 .shot-box {
-	display: inline-block;
+	display: flex;
+	justify-content: center;
 	box-sizing: border-box;
+	width: 50px;
+	align-items: center;
 	padding: 8px 15px;
+
 	background: #ffffff;
 	border: 2px solid #d8dae5;
 	border-radius: 4px;
