@@ -9,29 +9,40 @@ import './index.scss';
 import Button from 'shared/button/ui';
 
 const WithShots = Target => {
-	const WithShots = props => {
+	const WithShots = ({ setRound, postRoundContest }) => {
 		const { contestType, items } = useSelector(selectContestData);
 		const dispatch = useDispatch();
 		const [bullet, setBullet] = useState([]);
+
+		const [isContestEnded, setContestEnded] = useState(false);
 
 		const handleButtonClickUndoLast = () => {
 			let bulletWithoutLast = bullet.slice(0, -1);
 
 			setBullet(bulletWithoutLast);
 			dispatch(delLastShot());
+			setContestEnded(false);
 		};
 
 		const handleButtonClickChangeTarget = () => {
 			setBullet([]);
 		};
 
+		const handleButtonClickFinishContest = () => {
+			setRound(items);
+			postRoundContest();
+		};
+		const handleButtonClickSurrender = () => {};
+
 		const shotHandleClick = (e: any) => {
 			let contestLengthOfShots = contestType == 'round' ? 30 : 5;
-			if (bullet.length == contestLengthOfShots) {
-				console.log(items);
+
+			if (items.length >= contestLengthOfShots) {
+				setContestEnded(true);
 				alert('you already set all shots st this contest type');
 				return 0;
 			}
+
 			let item = {
 				shotNumber: bullet.length + 1,
 				x: e.nativeEvent.offsetX - 5,
@@ -49,10 +60,6 @@ const WithShots = Target => {
 					style={{ position: 'relative' }}>
 					<Target shotEvent={shotHandleClick} />
 					{bullet.map(value => {
-						{
-							/* console.log(bullet.length, value); */
-						}
-
 						return (
 							<img
 								key={value.shotNumber}
@@ -65,9 +72,24 @@ const WithShots = Target => {
 					})}
 				</div>
 				<div className='target__bottom-interaction'>
+					{isContestEnded ? (
+						<Button
+							paddingSide={'20px'}
+							onClick={handleButtonClickFinishContest}
+							text='Finish'
+							type={'usual'}
+						/>
+					) : (
+						<Button
+							onClick={handleButtonClickSurrender}
+							text='Surrender'
+							type={'surrender'}
+						/>
+					)}
+
 					<Button
 						onClick={handleButtonClickChangeTarget}
-						text='Change target'
+						text='Clear target'
 						type={'blue'}
 					/>
 					<Button
