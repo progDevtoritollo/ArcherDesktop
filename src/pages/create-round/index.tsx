@@ -1,5 +1,6 @@
 import { useMutation } from 'react-query';
 import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 import FullTarget from 'shared/Targets/FullTarget/FullTarget';
 import TripleTarget from 'shared/Targets/TripleTarget/TripleTarget';
@@ -29,12 +30,10 @@ const RoundPage = () => {
 		},
 		{
 			onSuccess: res => {
-				console.log(res);
-				// вызов окна уведомления об успешном создании в Alert
+				toast.success('Your round has saved');
 			},
 			onError: (err: any) => {
-				// вызов окна уведомления об ошибке создании в Alert
-				console.log(err.code);
+				toast.error('Error... something went wrong ');
 			},
 		},
 	);
@@ -46,6 +45,7 @@ const RoundPage = () => {
 
 	return (
 		<div className='round-page'>
+			<Toaster />
 			<h1>RoundPage</h1>
 			<div className='round-page__target-container'>
 				<TripleTargetShotWrapper
