@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import {
 	GlobalOutlined,
 	MacCommandOutlined,
 	ContainerOutlined,
-	LinkOutlined,
 	FlagOutlined,
 	SettingOutlined,
 	UserOutlined,
@@ -14,9 +13,10 @@ import {
 	UserAddOutlined,
 	BellOutlined,
 	ApartmentOutlined,
+	FireOutlined,
 } from '@ant-design/icons';
-import { Divider, Menu as UIMenu, Switch } from 'antd';
-import type { MenuProps, MenuTheme } from 'antd/es/menu';
+import { Menu as UIMenu } from 'antd';
+import type { MenuProps } from 'antd/es/menu';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -30,9 +30,6 @@ function getItem(label: React.ReactNode, key?: React.Key | null, icon?: React.Re
 }
 
 const items: MenuItem[] = [
-	// getItem('Navigation One', '1', <MailOutlined />),
-	// getItem('Navigation Two', '2', <CalendarOutlined />),]
-
 	getItem('User', 'User', <UserOutlined />, [
 		getItem(<Link to='user/notifications'> Notifications</Link>, 'User-Notifications', <BellOutlined />),
 		getItem(<Link to='user/activity'> Activity</Link>, 'User-Activity', <BookOutlined />),
@@ -48,10 +45,10 @@ const items: MenuItem[] = [
 		getItem(<Link to='club/settings'>Settings</Link>, 'Club-Settings', <SettingOutlined />),
 	]),
 
-	getItem('Create Event', 'Events', <MacCommandOutlined />, [
-		getItem(<Link to='create/round'>New Round</Link>, 'Events-New Check', <ContainerOutlined />),
-		getItem(<Link to='create/duel'>Duel</Link>, 'Events-Duel', <ApartmentOutlined />),
-		getItem(<Link to='create/competition'>Competition</Link>, 'Events-Competition', <FlagOutlined />),
+	getItem('Create', 'Create', <FireOutlined />, [
+		getItem(<Link to='create/round'>New Round</Link>, 'Create-New Check', <ContainerOutlined />),
+		getItem(<Link to='create/duel'>Duel</Link>, 'Create-Duel', <ApartmentOutlined />),
+		getItem(<Link to='create/competition'>Competition</Link>, 'Create-Competition', <FlagOutlined />),
 	]),
 
 	// world experience
@@ -59,32 +56,15 @@ const items: MenuItem[] = [
 		getItem(<Link to='world/activity'>Activity</Link>, 'World-Activity', <BookOutlined />),
 		getItem(<Link to='world/competition'>Competition</Link>, 'World-Competition', <FlagOutlined />),
 	]),
-
-	// getItem('Navigation Two', 'sub1', <AppstoreOutlined />, [
-	//   getItem('Option 3', '3'),
-	//   getItem('Option 4', '4'),
-	//   getItem('Submenu', 'sub1-2', null, [getItem('Option 5', '5'), getItem('Option 6', '6')]),
-	// ]),
-
-	// getItem(
-	//   <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-	//     Ant Design
-	//   </a>,
-	//   'link',
-	//   <LinkOutlined style={{ color: "red" }} />,
-	// ),
 ];
 
 const Menu: React.FC = () => {
 	return (
 		<section>
-			{/* <Divider type="vertical" /> */}
-			{/* <br />
-      <br /> */}
 			<UIMenu
-				style={{ width: 256 }}
+				style={{ width: 200 }}
 				defaultSelectedKeys={['1']}
-				defaultOpenKeys={['Club', 'User', 'Events', 'World']}
+				defaultOpenKeys={['Club', 'User', 'Create', 'World']}
 				mode={'inline'}
 				theme={'light'}
 				items={items}

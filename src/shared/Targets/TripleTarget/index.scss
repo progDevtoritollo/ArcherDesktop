@@ -1,4 +1,10 @@
 .tripleTarget-container {
-	width: 400px;
+	min-width: 550px;
 	height: auto;
+}
+@media only screen and (min-width: 600px) {
+	.tripleTarget-container {
+		width: 700px;
+		height: auto;
+	}
 }

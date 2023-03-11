@@ -9,6 +9,7 @@ import UserSettings from 'pages/userSettings';
 import UserNotification from 'pages/userNotification';
 import RoundPage from 'pages/create-round';
 import UserActivity from 'pages/user-activity';
+import FooterBar from 'widgets/FooterBar/FooterBar';
 
 const BasedPage = () => {
 	return (
@@ -16,8 +17,7 @@ const BasedPage = () => {
 			<div className='base-page__menu'>
 				<Menu />
 			</div>
-
-			<div className='base-page__page-content'>
+			<div className='base-page__content'>
 				<Routes>
 					<Route
 						path='/user/activity'
@@ -55,9 +55,7 @@ const BasedPage = () => {
 				</Routes>
 			</div>
 
-			<h1>Sidebar</h1>
-
-			<h1>Footer</h1>
+			<FooterBar />
 		</div>
 	);
 };

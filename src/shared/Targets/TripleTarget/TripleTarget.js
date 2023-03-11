@@ -12,11 +12,10 @@ function TripleTarget(props) {
 				zoomAndPan='magnify'
 				contentStyleType='text/css'
 				id='prefix__svg2'
-				width='100%'
+				width='90%'
 				xmlSpace='preserve'
 				preserveAspectRatio='xMidYMid meet'
-				// viewBox='0 0 210 210'
-				viewBox='-30 40 280 130'
+				viewBox='-10 40 220 130'
 				height='100%'
 				fillRule='evenodd'
 				{...props}>
