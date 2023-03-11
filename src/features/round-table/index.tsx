@@ -6,14 +6,6 @@ import Serie from 'shared/serie-row';
 
 import './index.scss';
 
-interface SerieForRound {
-	key: number;
-	seriesNumber: number;
-	firstShot: number | null;
-	secondShot: number | null;
-	thirdShot: number | null;
-}
-
 const RoundTable = () => {
 	const { items } = useSelector(selectContestData);
 
@@ -24,15 +16,6 @@ const RoundTable = () => {
 
 	return (
 		<div className='round-table'>
-			{items.length <= 0 ? (
-				<div className='round-table__massage__empty-page'>Start notate shots</div>
-			) : (
-				<div className='round-table__titles'>
-					<div className='title'>Series number</div>
-					<div className='title'>Shots</div>
-					<div className='title'>Series score</div>
-				</div>
-			)}
 			<div className='round-table__series'>
 				{shotSeries.map((series, i) => (
 					<Serie

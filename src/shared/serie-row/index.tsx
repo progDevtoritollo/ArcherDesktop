@@ -30,12 +30,12 @@ const Serie = ({ isDuel = true, seriesNumber = 1, firstShot, secondShot, thirdSh
 			{isOpponents ? <div className='whose'>Opponent</div> : isDuel ? <div className='whose you'>You</div> : null}
 
 			<div className='serie__series-number'>
-				{/* {seriesNumber <= 1 ? <div className='title'>Series number</div> : null} */}
+				{seriesNumber <= 1 ? <div className='title'>Series num.</div> : null}
 
 				<SerieInfoSection InfoNumber={seriesNumber <= 0 ? seriesNumber + 1 : seriesNumber} />
 			</div>
 			<div className='serie__shots-section'>
-				{/* {seriesNumber <= 1 && !isOpponents ? <div className='title'>Shots</div> : null} */}
+				{seriesNumber <= 1 && !isOpponents ? <div className='title'>Shots</div> : null}
 
 				<div className='shots-section__shots-container'>
 					<ShotScore shotScore={firstShot} />
@@ -44,7 +44,7 @@ const Serie = ({ isDuel = true, seriesNumber = 1, firstShot, secondShot, thirdSh
 				</div>
 			</div>
 			<div className='serie__series-score'>
-				{/* {seriesNumber <= 1 ? <div className='title'>Series score</div> : null} */}
+				{seriesNumber <= 1 ? <div className='title'>Series score</div> : null}
 
 				<SerieInfoSection InfoNumber={seriesScore} />
 			</div>

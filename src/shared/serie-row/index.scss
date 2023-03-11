@@ -1,5 +1,6 @@
 .serie {
-	margin-left: 13px;
+	margin-left: 10px;
+	margin-right: 10px;
 	max-width: 600px;
 	display: flex;
 	flex-direction: row;
@@ -13,6 +14,7 @@
 		margin-right: 47px;
 	}
 	.title {
+		margin-bottom: 5px;
 	}
 	&__series-number {
 		display: flex;
@@ -21,7 +23,7 @@
 	}
 	&__shots-section {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		align-items: center;
 
 		.shots-section__shots-container {
