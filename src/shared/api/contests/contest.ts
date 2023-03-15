@@ -10,7 +10,7 @@ class contest {
 	};
 
 	createContestRound = (data: {}) => {
-		return apiClient.post(BASE_URL + 'round', data);
+		return apiClient.post('api/checks/me/save', data); //'round'
 	};
 
 	createContestDuel = (data: Contest) => {
