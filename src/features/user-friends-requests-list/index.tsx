@@ -5,9 +5,18 @@ import { Divider } from 'antd';
 
 import './index.scss';
 
-const RequestFriendsList = () => {
-	const [friendRequests, setFriendRequests] = useState([]);
+interface RequestsProps {
+	friendRequests: Request[];
+}
 
+interface Request {
+	id: number;
+	name: string;
+	surname: string;
+	clubName: string;
+}
+
+const RequestFriendsList = ({ friendRequests }: RequestsProps) => {
 	return (
 		<div className='requests-list__container'>
 			<Divider orientation='left'>Requests</Divider>
@@ -15,8 +24,8 @@ const RequestFriendsList = () => {
 				<div>Empty list </div>
 			) : (
 				<>
-					{friendRequests.map(friend => (
-						<div key={friend}>{friend}</div>
+					{friendRequests.map(({ id, name, clubName }: Request) => (
+						<div key={id}>{name}</div>
 					))}
 				</>
 			)}

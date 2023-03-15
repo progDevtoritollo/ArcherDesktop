@@ -17,7 +17,7 @@ const UserFriendsPage = () => {
 			<h1>UsersFriendsPage</h1>
 
 			<div className='user-friend-page__requests-list'>
-				<RequestFriendsList />
+				<RequestFriendsList friendRequests={[]} />
 			</div>
 			<div className='user-friend-page__my-friends-list'>
 				<UserMyFriend myFriends={list} />
