@@ -4,9 +4,18 @@ import { Divider } from 'antd';
 
 import './index.scss';
 
-const UserMyFriend = () => {
-	const [myFriends, setMyFrinds] = useState([]);
+interface MyFriendProps {
+	myFriends: MyFriend[];
+}
 
+interface MyFriend {
+	id: number;
+	name: string;
+	surname: string;
+	clubName: string;
+}
+
+const UserMyFriend = ({ myFriends }: MyFriendProps) => {
 	return (
 		<div className='my-friends-list__container'>
 			<Divider orientation='left'>My friends</Divider>
@@ -14,8 +23,8 @@ const UserMyFriend = () => {
 				<div>Empty list </div>
 			) : (
 				<>
-					{myFriends.map(friend => (
-						<div key={friend}>{friend}</div>
+					{myFriends.map(({ id, name, clubName }: MyFriend) => (
+						<div key={id}>{name}</div>
 					))}
 				</>
 			)}

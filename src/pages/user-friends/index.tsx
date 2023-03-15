@@ -6,7 +6,7 @@ import UserMyFriend from 'features/user-my-friends-list';
 import RecommendedFriendsList from 'features/user-friends-recommended-list';
 
 const UserFriendsPage = () => {
-	const [recommended, setRecommended] = useState([
+	const [list, setlist] = useState([
 		{ id: 34535, name: 'Devid', surname: 'Navorscy', clubName: 'Dushca' },
 		{ id: 67567, name: 'Devid', surname: 'Navorscy', clubName: 'Dushca' },
 	]);
@@ -20,10 +20,10 @@ const UserFriendsPage = () => {
 				<RequestFriendsList />
 			</div>
 			<div className='user-friend-page__my-friends-list'>
-				<UserMyFriend />
+				<UserMyFriend myFriends={list} />
 			</div>
 			<div className='user-friend-page__recommended-list'>
-				<RecommendedFriendsList recommended={recommended} />
+				<RecommendedFriendsList recommended={list} />
 			</div>
 		</div>
 	);
