@@ -10,6 +10,7 @@ import UserNotification from 'pages/userNotification';
 import RoundPage from 'pages/create-round';
 import UserActivity from 'pages/user-activity';
 import FooterBar from 'widgets/FooterBar/FooterBar';
+import UserFriendsPage from 'pages/user-friends';
 
 const BasedPage = () => {
 	return (
@@ -20,9 +21,18 @@ const BasedPage = () => {
 			<div className='base-page__content'>
 				<Routes>
 					<Route
+						path='/user/notifications'
+						element={<UserNotification />}
+					/>
+					<Route
 						path='/user/activity'
 						element={<UserActivity />}
 					/>
+					<Route
+						path='/user/friends'
+						element={<UserFriendsPage />}
+					/>
+
 					<Route
 						path='/dashboard'
 						element={<Dashboard />}
@@ -35,10 +45,7 @@ const BasedPage = () => {
 						path='/test'
 						element={<TestPage />}
 					/>
-					<Route
-						path='/user/notifications'
-						element={<UserNotification />}
-					/>
+
 					<Route
 						path='/user/settings'
 						element={<UserSettings />}
