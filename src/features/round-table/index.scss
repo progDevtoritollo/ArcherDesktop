@@ -1,7 +1,36 @@
 .round-table {
-	margin-left: 30px;
+	margin: 0px 60px;
 	&__titles {
 		display: flex;
 		justify-content: space-between;
+	}
+}
+@media only screen and (min-width: 920px) {
+	.round-table {
+		margin: 0px 80px;
+		&__titles {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
+@media only screen and (max-width: 920px) {
+	.round-table {
+		margin: 0px 60px;
+		&__titles {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
+@media only screen and (max-width: 500px) {
+	.round-table {
+		margin: 0px;
+		margin-left: 33px;
+
+		&__titles {
+			display: flex;
+			justify-content: space-between;
+		}
 	}
 }
