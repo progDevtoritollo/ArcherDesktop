@@ -46,7 +46,7 @@ const RoundPage = () => {
 	return (
 		<div className='round-page'>
 			<Toaster />
-			<h1>RoundPage</h1>
+			<h1 className='page-title'>RoundPage</h1>
 			<div className='round-page__target-container'>
 				<TripleTargetShotWrapper
 					setRound={setRound}
