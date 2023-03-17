@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Modal } from 'antd';
 
 import Bullet from 'app/assets/img/bullet.png';
-import { addShot, delLastShot } from 'entities/contest/model/slice';
+import { addShot, delLastShot, clearContestList } from 'entities/contest/model/slice';
 import { selectContestData } from 'entities/contest/model/selectors';
 
 import './index.scss';
@@ -15,7 +16,25 @@ const WithShots = Target => {
 		const [bullet, setBullet] = useState([]);
 
 		const [isContestEnded, setContestEnded] = useState(false);
+		// modal window &&  ContestScore
+		const [isModalOpen, setIsModalOpen] = useState(false);
+		const [ContestScore, setContestScore] = useState(0);
 
+		// const showModal = () => {
+		// 	setIsModalOpen(true);
+		// };
+
+		const handleOk = () => {
+			setBullet([]);
+			dispatch(clearContestList());
+			setIsModalOpen(false);
+			setContestEnded(false);
+		};
+
+		const handleCancel = () => {
+			setIsModalOpen(false);
+		};
+		// modal window &&  ContestScore
 		const handleButtonClickUndoLast = () => {
 			let bulletWithoutLast = bullet.slice(0, -1);
 
@@ -29,10 +48,24 @@ const WithShots = Target => {
 		};
 
 		const handleButtonClickFinishContest = () => {
+			// culc ContestScore
+			let ShotsSum = 0;
+			for (let i = 0; i < items.length; i++) {
+				ShotsSum += items[i].score;
+			}
+			// setContestScore(Math.round(ShotsSum));
+			setContestScore(ShotsSum);
+
+			setIsModalOpen(true);
+
+			// contest request
 			setRound(items);
 			postRoundContest();
 		};
-		const handleButtonClickSurrender = () => {};
+		const handleButtonClickSurrender = () => {
+			setBullet([]);
+			dispatch(clearContestList());
+		};
 
 		const shotHandleClick = (e: any) => {
 			let contestLengthOfShots = contestType == 'round' ? 30 : 5;
@@ -40,6 +73,7 @@ const WithShots = Target => {
 			if (items.length >= contestLengthOfShots) {
 				setContestEnded(true);
 				alert('you already set all shots st this contest type');
+
 				return 0;
 			}
 
@@ -55,6 +89,15 @@ const WithShots = Target => {
 
 		return (
 			<div className='target'>
+				<Modal
+					title='Finished contest task'
+					open={isModalOpen}
+					onOk={handleOk}
+					onCancel={handleCancel}>
+					<p>Contest score: {ContestScore}</p>
+					<p>distance</p>
+					<p>Some contents info...</p>
+				</Modal>
 				<div
 					className='target-with-WithShots-hoc'
 					style={{ position: 'relative' }}>
