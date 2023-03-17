@@ -1,7 +1,8 @@
 import apiClient from 'shared/api/http-common';
 
+import { API } from 'shared/api/http-common';
 class auth {
-	API_URL = 'http://localhost:8080/api/auth/';
+	API_URL = API + '/auth/';
 
 	login = (email: string, password: string) => {
 		return apiClient

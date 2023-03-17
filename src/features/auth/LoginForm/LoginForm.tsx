@@ -4,16 +4,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from 'react-query';
 import React, { useState, useEffect } from 'react';
 
-// import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
-// import requestBuilder from "./../../utils/requestBuilder";
-// import loginService from "./../../services/loginService";
 import Block from 'shared/ui/Block';
 import authBuilder from 'shared/api/auth/authService';
-
-// import { SetIsAuth } from "./../../redux/user/slice";
+import { SetIsAuth } from 'entities/app/model/slice';
+import { GOOGLE_API } from 'shared/api/http-common';
 
 const LoginForm: React.FC = () => {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -39,16 +38,16 @@ const LoginForm: React.FC = () => {
 					headers: res.headers,
 					data: res.data,
 				};
-				// dispatch(SetIsAuth(true));
+				dispatch(SetIsAuth(true));
 				setPostResult(formatResponse(result));
 				navigate('/');
 			},
 			onError: (err: any) => {
 				setPostResult(formatResponse(err.response?.data || err));
+				dispatch(SetIsAuth(false));
 			},
 		},
 	);
-	console.log(getResult);
 	useEffect(() => {
 		if (isLoadingLogin) setPostResult('loading...');
 	}, [isLoadingLogin]);
@@ -70,7 +69,7 @@ const LoginForm: React.FC = () => {
 	};
 
 	const handleGoogleClick = () => {
-		window.location.replace('http google');
+		window.open(GOOGLE_API, '_blank', 'width=500,height=500');
 	};
 
 	return (

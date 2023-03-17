@@ -50,15 +50,10 @@ const BasedPage = () => {
 						path='/user/settings'
 						element={<UserSettings />}
 					/>
-					<Route
+					{/* <Route
 						path='*'
-						element={
-							<Navigate
-								to='/NotFound'
-								replace
-							/>
-						}
-					/>
+						element={<h1>404 Not Found</h1>}
+					/> */}
 				</Routes>
 			</div>
 

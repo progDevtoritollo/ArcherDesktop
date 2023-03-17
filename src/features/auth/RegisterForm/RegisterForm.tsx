@@ -1,23 +1,20 @@
 import { Form, Input, Button } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { useMutation } from 'react-query';
-
-// import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { UserOutlined, LockOutlined, MailOutlined, InfoCircleTwoTone, GoogleSquareFilled } from '@ant-design/icons';
 
-// import { GOOGLE_API } from "./../../commons";
+import { SetIsAuth } from 'entities/app/model/slice';
+
+import { GOOGLE_API } from 'shared/api/http-common';
 import authBuilder from 'shared/api/auth/authService';
 import Block from 'shared/ui/Block';
-// import registerService from "./../../services/registerService";
-// import loginService from "./../../services/loginService";
-// import requestBuilder from "./../../utils/requestBuilder";
-// import { SetIsAuth } from "./../../redux/user/slice";
 
 const RegisterForm: React.FC = () => {
 	const navigate = useNavigate();
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	const [name, setName] = useState('');
 	const [surname, setSurname] = useState('');
@@ -48,12 +45,15 @@ const RegisterForm: React.FC = () => {
 					headers: res.headers,
 					data: res.data,
 				};
-				// dispatch(SetIsAuth(true));
+				dispatch(SetIsAuth(true));
+				// setSuccess(true); to redirect to page "Check your email to confirm"
+
 				setPostResult(formatResponse(result));
 				navigate('/');
 			},
 			onError: (err: any) => {
 				setPostResult(formatResponse(err.response?.data || err));
+				dispatch(SetIsAuth(false));
 			},
 		},
 	);
@@ -69,23 +69,6 @@ const RegisterForm: React.FC = () => {
 			setPostResult(formatResponse(err));
 		}
 	}
-	// async function register(registerData, setSuccess) {
-	//   let res = await registerService.Register(registerData);
-	//   if (res.status === 201) {
-	//     setSuccess(false);
-	//     let loginData = {
-	//       email: registerData.email,
-	//       password: registerData.password,
-	//     };
-
-	//     let res = await loginService.Login(loginData);
-	//     if (res.status === 200) {
-	//       requestBuilder.setToken(res.data.accessToken);
-	//       dispatch(SetIsAuth(true));
-	//       history.push("/");
-	//     }
-	//   }
-	// }
 
 	useEffect(() => {
 		forceUpdate({});
@@ -96,7 +79,7 @@ const RegisterForm: React.FC = () => {
 	};
 
 	const handleGoogleClick = () => {
-		window.location.replace('http google');
+		window.open(GOOGLE_API, '_blank', 'width=500,height=500');
 	};
 
 	return (
