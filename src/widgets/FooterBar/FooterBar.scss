@@ -12,8 +12,11 @@
 .footer {
 	position: fixed;
 	bottom: 0px;
-	margin-top: auto;
+	left: 50%;
+	transform: translateX(-50%);
+
 	width: 100%;
+
 	flex-direction: row;
 	justify-content: space-around;
 	background-color: #ffffff;
