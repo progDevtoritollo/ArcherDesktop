@@ -1,6 +1,7 @@
 import { Form, Select, Button, Radio, Input } from 'antd';
 import { useEffect, useState, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import toast, { Toaster } from 'react-hot-toast';
 
 import './index.scss';
 
@@ -29,7 +30,14 @@ const ClubSettings: FC = () => {
 	const handleJoinClubSubmit = () => {
 		let data = { clubId };
 		console.log('send data Club Settings', data);
-		clubService.postClubJoin(data);
+		clubService
+			.postClubJoin(data)
+			.then(res => {
+				toast.success('You request to join clubsended ');
+			})
+			.catch(err => {
+				toast.error('Error... something went wrong ');
+			});
 	};
 
 	const handleCreateSubmit = () => {
@@ -45,11 +53,13 @@ const ClubSettings: FC = () => {
 			.createClubs(data)
 			.then(res => {
 				if (res.status === 200) {
+					toast.success('Club has created');
 					console.log('crate club response ', res);
 					dispatch(SetIsCoach(true));
 				}
 			})
 			.catch(err => {
+				toast.error('Error... something went wrong ');
 				console.error(err);
 			});
 	};
@@ -68,6 +78,7 @@ const ClubSettings: FC = () => {
 
 	return (
 		<div className='club-settings'>
+			<Toaster />
 			<h1>ClubSettings {clubName}</h1>
 			<Radio.Group
 				className='club-settings__page-switcher'
