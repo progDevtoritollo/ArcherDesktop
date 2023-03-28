@@ -11,6 +11,7 @@ import RoundPage from 'pages/create-round';
 import UserActivity from 'pages/user-activity';
 import FooterBar from 'widgets/FooterBar/FooterBar';
 import UserFriendsPage from 'pages/user-friends';
+import ClubSettings from 'pages/club-settings';
 
 const BasedPage = () => {
 	return (
@@ -49,6 +50,10 @@ const BasedPage = () => {
 					<Route
 						path='/user/settings'
 						element={<UserSettings />}
+					/>
+					<Route
+						path='/club/settings'
+						element={<ClubSettings />}
 					/>
 					{/* <Route
 						path='*'

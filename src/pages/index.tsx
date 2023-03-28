@@ -6,31 +6,32 @@ import { useEffect } from 'react';
 import Auth from 'pages/Auth/Auth';
 import BasedPage from 'pages/BasedPage';
 import { selectAppSate } from 'entities/app/model/selectors';
-import { SetIsAuth } from 'entities/app/model/slice';
+import { SetIsAuth } from 'entities/user/model/slice';
 import userService from 'shared/api/user/userService';
 
 import './index.scss';
 
 export const Routing = () => {
-	const { isAuth } = useSelector(selectAppSate);
-	const dispatch = useDispatch();
+	// подключить когда не нужна будет проверка
+	// const { isAuth } = useSelector(selectAppSate);
+	// const dispatch = useDispatch();
 
-	useEffect(() => {
-		userService
-			.getIsAuth()
-			.then(res => {
-				if (res.status === 200) {
-					dispatch(SetIsAuth(true));
-				}
-			})
-			.catch(err => {
-				if (err.response.status === 401) {
-					dispatch(SetIsAuth(false));
-				}
-			});
-	});
+	// useEffect(() => {
+	// 	userService
+	// 		.getIsAuth()
+	// 		.then(res => {
+	// 			if (res.status === 200) {
+	// 				dispatch(SetIsAuth(true));
+	// 			}
+	// 		})
+	// 		.catch(err => {
+	// 			if (err.response.status === 401) {
+	// 				dispatch(SetIsAuth(false));
+	// 			}
+	// 		});
+	// });
 
-	// const isAuth = false;
+	const isAuth = true;
 
 	return (
 		<div className='wrapper'>

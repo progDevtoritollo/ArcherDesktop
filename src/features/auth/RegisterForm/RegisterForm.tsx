@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { UserOutlined, LockOutlined, MailOutlined, InfoCircleTwoTone, GoogleSquareFilled } from '@ant-design/icons';
 
-import { SetIsAuth } from 'entities/app/model/slice';
+import { SetIsAuth } from 'entities/user/model/slice';
 
 import { GOOGLE_API } from 'shared/api/http-common';
 import authBuilder from 'shared/api/auth/authService';

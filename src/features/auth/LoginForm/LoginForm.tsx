@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 
 import Block from 'shared/ui/Block';
 import authBuilder from 'shared/api/auth/authService';
-import { SetIsAuth } from 'entities/app/model/slice';
+import { SetIsAuth } from 'entities/user/model/slice';
 import { GOOGLE_API } from 'shared/api/http-common';
 
 const LoginForm: React.FC = () => {
