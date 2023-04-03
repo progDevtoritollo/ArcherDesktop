@@ -1,14 +1,17 @@
+import { Toaster } from 'react-hot-toast';
 
-
-import { withProviders } from "./providers";
-import { Routing } from "pages";
-import "./index.scss"
+import { withProviders } from './providers';
+import { Routing } from 'pages';
+import './index.scss';
 
 const App = () => {
-
 	return (
-		<Routing />
+		<>
+			<Toaster />
+
+			<Routing />
+		</>
 	);
-}
+};
 
 export default withProviders(App);

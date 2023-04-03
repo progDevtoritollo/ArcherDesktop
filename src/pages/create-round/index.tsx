@@ -1,6 +1,6 @@
 import { useMutation } from 'react-query';
 import { useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 import FullTarget from 'shared/Targets/FullTarget/FullTarget';
 import TripleTarget from 'shared/Targets/TripleTarget/TripleTarget';
@@ -45,7 +45,6 @@ const RoundPage = () => {
 
 	return (
 		<div className='round-page'>
-			<Toaster />
 			<h1 className='page-title'>RoundPage</h1>
 			<div className='round-page__target-container'>
 				<TripleTargetShotWrapper
