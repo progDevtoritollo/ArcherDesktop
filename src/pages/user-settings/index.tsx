@@ -1,69 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import toast from 'react-hot-toast';
-import { TreeSelect } from 'antd';
 
 import './index.scss';
 import UsualInput from 'shared/usual-input/index';
 import userService from 'shared/api/user/userService';
 import DateInput from 'shared/date-input';
 import FileInput from 'shared/file-input/index';
-
-const treeData = [
-	{
-		title: 'Юношеские',
-		value: 'U0',
-		children: [
-			{
-				title: ' 1 ранг',
-				value: 'U1',
-			},
-			{
-				title: ' 2 ранг',
-				value: 'U2',
-			},
-			{
-				title: ' 3 ранг',
-				value: 'U3',
-			},
-		],
-	},
-	{
-		title: 'Взрослые',
-		value: 'A0',
-		children: [
-			{
-				title: '1 ранг',
-				value: 'A1',
-			},
-			{
-				title: '2 ранг',
-				value: 'A2',
-			},
-			{
-				title: '3 ранг',
-				value: 'A3',
-			},
-		],
-	},
-	{
-		title: 'KMC',
-		value: 'KMC',
-	},
-	{
-		title: 'MC',
-		value: 'MC',
-	},
-	{
-		title: 'MCMK',
-		value: 'MCMK',
-	},
-	{
-		title: 'ЗМС',
-		value: 'ZMS',
-	},
-];
+import SelectionData from 'shared/selection-data';
 
 const UserSettings: React.FC = () => {
 	const {} = useQuery(
@@ -127,17 +72,11 @@ const UserSettings: React.FC = () => {
 				value={bDate}
 				setValue={setBDate}
 			/>
-			<h3>Archer level</h3>
-			<TreeSelect
-				style={{ width: '300px' }}
+
+			<SelectionData
+				setValue={setRank}
 				value={rank}
-				dropdownStyle={{ maxHeight: 700, overflow: 'auto' }}
-				treeData={treeData}
-				placeholder='Please select'
-				treeDefaultExpandAll
-				onChange={(rank: string) => {
-					setRank(rank);
-				}}
+				label='Archer level'
 			/>
 
 			<div className='user-settings__bow-form'>
