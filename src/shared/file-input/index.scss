@@ -1,51 +1,84 @@
-.input-file {
-	position: relative;
-	display: inline-block;
-	margin: 5px;
-}
-.input-file span {
-	position: relative;
-	display: inline-block;
-	cursor: pointer;
-	outline: none;
-	text-decoration: none;
-	font-size: 14px;
-	vertical-align: middle;
-	color: rgb(255 255 255);
-	text-align: center;
-	border-radius: 4px;
-	background-color: #418891;
-	line-height: 10px;
-	height: 30px;
-	padding: 10px 20px;
-	box-sizing: border-box;
-	border: none;
-	margin: 0;
-	transition: background-color 0.2s;
-}
-.input-file input[type='file'] {
-	position: absolute;
-	z-index: -1;
-	opacity: 0;
-	display: block;
-	width: 0;
-	height: 0;
-}
+$input-file-margin: 5px;
+$input-file-color: #418891;
+$input-file-hover-color: #59b9be;
+$input-file-active-color: #2e6a70;
+.file-input-container {
+	.input-file {
+		position: relative;
+		display: inline-block;
+		margin: $input-file-margin;
+		span {
+			position: relative;
+			display: inline-block;
+			cursor: pointer;
+			outline: none;
+			text-decoration: none;
+			font-size: 14px;
+			vertical-align: middle;
+			color: #fff;
+			text-align: center;
+			border-radius: 4px;
+			background-color: $input-file-color;
+			line-height: 10px;
+			height: 30px;
+			padding: 10px 20px;
+			box-sizing: border-box;
+			border: none;
+			margin: 0;
+			transition: background-color 0.2s;
 
-/* Focus */
-.input-file input[type='file']:focus + span {
-	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
+			&:hover {
+				background-color: $input-file-hover-color;
+			}
 
-/* Hover/active */
-.input-file:hover span {
-	background-color: #59b9be;
-}
-.input-file:active span {
-	background-color: #2e6a70;
-}
+			&:active {
+				background-color: $input-file-active-color;
+			}
+		}
 
-/* Disabled */
-.input-file input[type='file']:disabled + span {
-	background-color: #eee;
+		input[type='file'] {
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+			display: block;
+			width: 0;
+			height: 0;
+
+			&:focus + span {
+				box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+			}
+
+			&:disabled + span {
+				background-color: #eee;
+			}
+		}
+	}
+	&__upload {
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+		outline: none;
+		text-decoration: none;
+		font-size: 14px;
+		vertical-align: middle;
+		color: #fff;
+		text-align: center;
+		border-radius: 4px;
+		background-color: $input-file-color;
+		line-height: 10px;
+		height: 30px;
+		padding: 10px 20px;
+		box-sizing: border-box;
+		border: none;
+		margin: 0;
+		transition: background-color 0.2s;
+
+		&:hover {
+			background-color: $input-file-hover-color;
+		}
+
+		&:active {
+			background-color: $input-file-active-color;
+		}
+	}
 }
