@@ -16,17 +16,15 @@ import './index.scss';
 const TripleTargetShotWrapper = WithShots(TripleTarget);
 const FullTargetShotWrapper = WithShots(FullTarget);
 
-const RoundPage = () => {
+const RoundPage: React.FC = () => {
 	const [round, setRound] = useState({});
+	const [totalScore, setTotalScore] = useState(0);
+	const [distance, setDistance] = useState();
 
-	const {
-		isLoading: isLoadingRound,
-		mutate: postRoundData,
-		isError,
-	} = useMutation<any, Error>(
+	const { isLoading: isLoadingRound, mutate: postRoundData } = useMutation<any, Error>(
 		'create-round',
 		async () => {
-			return await contesBuilder.createContestRound(round);
+			return await contesBuilder.createContestRound({ round, totalScore, distance });
 		},
 		{
 			onSuccess: res => {
@@ -50,6 +48,8 @@ const RoundPage = () => {
 				<TripleTargetShotWrapper
 					setRound={setRound}
 					postRoundContest={postRoundContest}
+					setTotalScore={setTotalScore}
+					setDistance={setDistance}
 				/>
 			</div>
 			<div className='round-page__round__table'>

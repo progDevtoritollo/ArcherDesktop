@@ -10,7 +10,7 @@ import './index.scss';
 import Button from 'shared/button/ui';
 
 const WithShots = Target => {
-	const WithShots = ({ setRound, postRoundContest }) => {
+	const WithShots = ({ setRound, postRoundContest, setTotalScore, setDistance }) => {
 		const { contestType, items } = useSelector(selectContestData);
 		const dispatch = useDispatch();
 		const [bullet, setBullet] = useState([]);
@@ -20,15 +20,12 @@ const WithShots = Target => {
 		const [isModalOpen, setIsModalOpen] = useState(false);
 		const [ContestScore, setContestScore] = useState(0);
 
-		// const showModal = () => {
-		// 	setIsModalOpen(true);
-		// };
-
 		const handleOk = () => {
 			setBullet([]);
 			dispatch(clearContestList());
 			setIsModalOpen(false);
 			setContestEnded(false);
+			postRoundContest();
 		};
 
 		const handleCancel = () => {
@@ -55,12 +52,12 @@ const WithShots = Target => {
 			}
 			// setContestScore(Math.round(ShotsSum));
 			setContestScore(ShotsSum);
+			setTotalScore(ShotsSum);
 
 			setIsModalOpen(true);
 
 			// contest request
 			setRound(items);
-			postRoundContest();
 		};
 		const handleButtonClickSurrender = () => {
 			setBullet([]);
@@ -87,6 +84,10 @@ const WithShots = Target => {
 			dispatch(addShot(item));
 		};
 
+		const handleSelectionDistance = event => {
+			setDistance(event.target.value);
+		};
+
 		return (
 			<div className='target'>
 				<Modal
@@ -95,7 +96,17 @@ const WithShots = Target => {
 					onOk={handleOk}
 					onCancel={handleCancel}>
 					<p>Contest score: {ContestScore}</p>
-					<p>distance</p>
+					<p>distance add to request by custom selection</p>
+					<label for='cars'>Choose a distance:</label>
+					<select
+						onChange={handleSelectionDistance}
+						name='distance'
+						id='distance'>
+						<option value='18'>18</option>
+						<option value='60'>60</option>
+						<option value='70'>70</option>
+						<option value='90'>90</option>
+					</select>
 					<p>Some contents info...</p>
 				</Modal>
 				<div
