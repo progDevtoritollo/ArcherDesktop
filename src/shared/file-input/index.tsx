@@ -52,10 +52,14 @@ const FileInput: React.FC = () => {
 						accept='.png, .jpg, .jpeg'
 						onChange={handleFileInputChange}
 					/>
-					<span> {selectedFile ? selectedFile.name : 'Choose file'}</span>
+					<span> {selectedFile ? 'File selected' : 'Choose file'}</span>
 				</label>
+				<button
+					className='file-input-container__upload'
+					type='submit'>
+					Upload
+				</button>
 			</div>
-			<button type='submit'>Upload</button>
 		</form>
 	);
 };
