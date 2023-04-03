@@ -5,7 +5,7 @@ import Dashboard from 'pages/Dashboard';
 import Menu from 'widgets/Menu';
 
 import './index.scss';
-import UserSettings from 'pages/userSettings';
+import UserSettings from 'pages/user-settings';
 import UserNotification from 'pages/userNotification';
 import RoundPage from 'pages/create-round';
 import UserActivity from 'pages/user-activity';

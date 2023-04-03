@@ -11,51 +11,62 @@ class UserService {
 
 	//* new api
 	API_USER_PROFILE_UPDATE = '/user/me/update';
+	API_USER_PROFILE_UPDATE_AVATAR = '/user/me/update/avatar';
+
 	API_USER_PROFILE_INFO = '/user/me';
 
 	API_USER_BOW_UPDATE = '/user/bow/update';
+	API_USER_VALUE = '/user/value/update';
+
 	API_USER_BOW_SETTINGS = '/user/bow';
 
-	async setSettings(data: object) {
-		return await apiClient.post(this.API_USER_PROFILE_UPDATE, data);
+	setSettings(data: object) {
+		return apiClient.post(this.API_USER_PROFILE_UPDATE, data);
+	}
+	postAvatar(data: File) {
+		return apiClient.post(this.API_USER_PROFILE_UPDATE_AVATAR, data, {
+			headers: {
+				'Content-Type': 'multipart/form-data',
+			},
+		});
+	}
+	postUserSettingsValue(data: object) {
+		return apiClient.post(this.API_USER_VALUE, data);
+	}
+	getUserSettings() {
+		return apiClient.get(this.API_USER_PROFILE_INFO);
 	}
 
-	async getUserSettings() {
-		let res = await apiClient.get(this.API_USER_PROFILE_INFO);
-		return res.data;
+	setBowSettings(data: object) {
+		return apiClient.post(this.API_USER_BOW_UPDATE, data);
 	}
 
-	async setBowSettings(data: object) {
-		return await apiClient.post(this.API_USER_BOW_UPDATE, data);
+	getBowSettings() {
+		return apiClient.get(this.API_USER_BOW_SETTINGS);
 	}
 
-	async getBowSettings() {
-		let res = await apiClient.get(this.API_USER_BOW_SETTINGS);
-		return res.data;
-	}
-
-	// async getUserProfile(userid: number) {
-	//   return await requestBuilder.MakeGetRequest(this.API_USER_BY_ID+
+	//  getUserProfile(userid: number) {
+	//   return  requestBuilder.MakeGetRequest(this.API_USER_BY_ID+
 	//     userid)
 	// }
-	async getIsAuth() {
-		return await apiClient(`${this.API_USER_IS_AUTH}`);
+	getIsAuth() {
+		return apiClient(`${this.API_USER_IS_AUTH}`);
 	}
 
-	async getUserStatistic() {
-		return await apiClient(`${this.API_USER_STATISTIC}`);
+	getUserStatistic() {
+		return apiClient(`${this.API_USER_STATISTIC}`);
 	}
 
-	async getUserChecks() {
-		return await apiClient(this.API_USER_CHECKS);
+	getUserChecks() {
+		return apiClient(this.API_USER_CHECKS);
 	}
 
-	async postUserCheckCreate(Data: object) {
-		return await apiClient(this.API_USER_CHECK_SAVE, Data);
+	postUserCheckCreate(Data: object) {
+		return apiClient(this.API_USER_CHECK_SAVE, Data);
 	}
 
-	async getUserInfo() {
-		return await apiClient(this.API_USER_INFO);
+	getUserInfo() {
+		return apiClient(this.API_USER_INFO);
 	}
 }
 const userService = new UserService();
