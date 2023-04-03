@@ -2,7 +2,8 @@
 	box-sizing: border-box;
 	width: 500px;
 	height: 80px;
-	background: rgba(217, 217, 217, 0.58);
+	margin: 5px;
+	background: rgb(255, 255, 255);
 	border: 1px solid white;
 	box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
 	backdrop-filter: blur(6px);
@@ -16,13 +17,13 @@
 	user-select: none;
 	font-weight: bolder;
 	color: black;
-}
 
-.clickable-card:hover {
-	border: 1px solid black;
-	transform: scale(1.05);
-}
+	&:hover {
+		border: 1px solid black;
+		transform: scale(1.05);
+	}
 
-.clickable-card:active {
-	transform: scale(0.95) rotateZ(1.7deg);
+	&:active {
+		transform: scale(0.95) rotateZ(1.7deg);
+	}
 }

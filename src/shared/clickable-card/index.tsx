@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import classNames from 'classnames';
 
 import './index.scss';
 
-interface InputComponentProps {}
+interface InputComponentProps {
+	className?: string;
+	children: React.ReactNode;
+}
 
-const ClickableCard: React.FC<InputComponentProps> = () => {
+const ClickableCard: React.FC<InputComponentProps> = ({ children, className }: InputComponentProps) => {
 	return (
 		<>
-			<div className='card'>Click me</div>
+			<div className={classNames('clickable-card', className)}>{children}</div>
 		</>
 	);
 };

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectEventData } from 'entities/event/model/selectors';
-import CardBlock from 'shared/ui/CardBlock';
+import ClickableCard from 'shared/clickable-card';
 import Event from 'entities/event/ui';
 
 const UserActivity = () => {
@@ -10,7 +10,7 @@ const UserActivity = () => {
 		<div>
 			<h1>UserActivity</h1>
 			{items.map(({ id, userName, score, opponentScore, event, time, opponentName, userPhoto, competitionPlace }) => (
-				<CardBlock key={id}>
+				<ClickableCard key={id}>
 					<Event
 						key={id}
 						userName={userName}
@@ -22,7 +22,7 @@ const UserActivity = () => {
 						competitionPlace={competitionPlace}
 						userPhoto={userPhoto}
 					/>
-				</CardBlock>
+				</ClickableCard>
 			))}
 		</div>
 	);
