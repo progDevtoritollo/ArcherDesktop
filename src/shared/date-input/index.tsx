@@ -45,6 +45,9 @@ const DateInput: React.FC<InputComponentProps> = ({ setValue, value, label = 'in
 		const BDate = event.target.valueAsDate?.toISOString() ?? '';
 		setDate(BDate);
 		setValue(event.target.value);
+	};
+
+	const handleClickOnBlur = () => {
 		postInputData();
 	};
 
@@ -63,7 +66,8 @@ const DateInput: React.FC<InputComponentProps> = ({ setValue, value, label = 'in
 				id='party'
 				name='bday'
 				value={value}
-				onChange={handleBirthDayDate}></input>
+				onChange={handleBirthDayDate}
+				onBlur={handleClickOnBlur}></input>
 		</div>
 	);
 };
