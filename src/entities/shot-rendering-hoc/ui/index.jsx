@@ -10,7 +10,7 @@ import './index.scss';
 import Button from 'shared/button/ui';
 
 const WithShots = Target => {
-	const WithShots = ({ setRound, postRoundContest, setTotalScore, setDistance }) => {
+	const WithShots = ({ setShots, postRoundContest, setTotalScore, setDistance }) => {
 		const { contestType, items } = useSelector(selectContestData);
 		const dispatch = useDispatch();
 		const [bullet, setBullet] = useState([]);
@@ -57,7 +57,7 @@ const WithShots = Target => {
 			setIsModalOpen(true);
 
 			// contest request
-			setRound(items);
+			setShots(items);
 		};
 		const handleButtonClickSurrender = () => {
 			setBullet([]);

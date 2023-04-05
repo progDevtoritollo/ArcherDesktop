@@ -17,14 +17,14 @@ const TripleTargetShotWrapper = WithShots(TripleTarget);
 const FullTargetShotWrapper = WithShots(FullTarget);
 
 const RoundPage: React.FC = () => {
-	const [round, setRound] = useState({});
+	const [shots, setShots] = useState({});
 	const [totalScore, setTotalScore] = useState(0);
-	const [distance, setDistance] = useState();
+	const [distance, setDistance] = useState('18');
 
 	const { isLoading: isLoadingRound, mutate: postRoundData } = useMutation<any, Error>(
 		'create-round',
 		async () => {
-			return await contesBuilder.createContestRound({ round, totalScore, distance });
+			return await contesBuilder.createContestRound({ shots, totalScore, distance });
 		},
 		{
 			onSuccess: res => {
@@ -46,7 +46,7 @@ const RoundPage: React.FC = () => {
 			<h1 className='page-title'>RoundPage</h1>
 			<div className='round-page__target-container'>
 				<TripleTargetShotWrapper
-					setRound={setRound}
+					setShots={setShots}
 					postRoundContest={postRoundContest}
 					setTotalScore={setTotalScore}
 					setDistance={setDistance}
