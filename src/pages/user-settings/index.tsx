@@ -12,7 +12,7 @@ import SelectionData from 'shared/selection-data';
 
 const UserSettings: React.FC = () => {
 	const {} = useQuery(
-		'post-input-settings',
+		'get-user-settings',
 		async () => {
 			return await userService.getUserSettings();
 		},
@@ -20,6 +20,7 @@ const UserSettings: React.FC = () => {
 			retry: 2,
 			onSuccess: res => {
 				console.log(res.data);
+				//? set component State page here
 			},
 			onError: (err: any) => {
 				toast.error('Error... Data did not loaded ');
