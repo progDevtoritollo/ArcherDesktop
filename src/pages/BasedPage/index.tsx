@@ -12,6 +12,7 @@ import UserActivity from 'pages/user-activity';
 import FooterBar from 'widgets/FooterBar/FooterBar';
 import UserFriendsPage from 'pages/user-friends';
 import ClubSettings from 'pages/club-settings';
+import UserStatistic from 'pages/user-statistic';
 
 const BasedPage = () => {
 	return (
@@ -33,6 +34,14 @@ const BasedPage = () => {
 						path='/user/friends'
 						element={<UserFriendsPage />}
 					/>
+					<Route
+						path='/user/statistic'
+						element={<UserStatistic />}
+					/>
+					<Route
+						path='/user/settings'
+						element={<UserSettings />}
+					/>
 
 					<Route
 						path='/dashboard'
@@ -47,10 +56,6 @@ const BasedPage = () => {
 						element={<TestPage />}
 					/>
 
-					<Route
-						path='/user/settings'
-						element={<UserSettings />}
-					/>
 					<Route
 						path='/club/settings'
 						element={<ClubSettings />}
